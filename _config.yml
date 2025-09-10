@@ -11,7 +11,7 @@ url: "https://jaspreetbhamra.github.io"
 baseurl: ""   # important for user site
 
 # Theme settings
-theme_mode: auto   # light, dark, or auto
+theme_mode: dark   # light, dark, or auto
 
 # Author info
 author:
