@@ -29,3 +29,5 @@ assets/js/dist
 jay/
 jay/node_modules
 jay/.envrc
+orig_default_config.yaml
+**/.DS_Store
