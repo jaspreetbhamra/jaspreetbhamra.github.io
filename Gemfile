@@ -12,3 +12,9 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
 end
 
 gem "wdm", "~> 0.2.0", :platforms => [:mingw, :x64_mingw, :mswin]
+
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-feed"
+gem "jekyll-seo-tag"
+gem "jekyll-sitemap"
+gem "jekyll-archives"
