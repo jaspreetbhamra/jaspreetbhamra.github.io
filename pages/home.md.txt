@@ -1,0 +1,33 @@
+---
+layout: page
+title: "Home"
+permalink: /
+---
+
+# Hi, I’m Jay 👋
+
+Welcome to my site — a mix of data science, machine learning, research, and a bit of art and humanity.
+
+- Check out my [Resume](/resume/)
+- Learn about my [Experience](/experience/)
+- Explore my [Projects](/projects/)
+- See [The Human Behind the Resume](/human/)
+
+<!-- ---
+layout: page
+title: "Home"
+permalink: /
+---
+
+# Welcome 👋
+
+Hi! I'm Jaspreet — a data scientist, ML engineer, and research scientist with interests across deep learning, computational biology, and real-world impact.
+
+- 🔥 Wildfire smoke detection (SmokeyNet)
+- 🧬 ASO toxicity modeling
+- 📊 Large-scale ML pipelines
+
+Check out my [Projects](/projects/), [Resume](/resume/), and [Experience](/experience/). -->
+
+
+

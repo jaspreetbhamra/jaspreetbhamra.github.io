@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: page
 title: "Resume"
 permalink: /resume/
@@ -15,4 +15,17 @@ Here’s a quick overview of my background.
 - 🔬 **Research**: Wildfire smoke detection, transcriptomics modeling, multimodal ML  
 - ⚙️ **Skills**: Python, SQL, Snowflake, dbt, Streamlit, PyTorch, TensorFlow, Kubernetes  
 
-For the full detail of my work, check out the [Experience](/experience/) page.
+For the full detail of my work, check out the [Experience](/experience/) page. -->
+
+
+---
+layout: page
+title: "Resume"
+permalink: /resume/
+---
+
+# Resume
+
+- Data Scientist @ Creyon Bio  
+- Researcher @ SDSC (SmokeyNet, transcriptomics modeling)  
+- Analyst @ Morgan Stanley
