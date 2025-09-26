@@ -1,90 +1,195 @@
+import { useEffect, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
 import TranslateButton from '../components/TranslateButton.jsx'
+import { getBlurb } from '../utils/api.js'
+
+const navLinks = [
+  { label: 'Resume', href: '#resume' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+]
+
+const backdropVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+}
+
+const blurbVariants = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -12 },
+}
 
 const Home = () => {
+  const [language, setLanguage] = useState('elvish')
+  const [blurbs, setBlurbs] = useState({ elvish: '', english: '' })
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    let cancelled = false
+
+    const loadBlurbs = async () => {
+      try {
+        const [elvishText, englishText] = await Promise.all([
+          getBlurb('elvish'),
+          getBlurb('english'),
+        ])
+
+        if (!cancelled) {
+          setBlurbs({ elvish: elvishText, english: englishText })
+          setIsLoading(false)
+        }
+      } catch (error) {
+        console.error('Failed to load translations', error)
+        if (!cancelled) {
+          setBlurbs({ elvish: '', english: '' })
+          setIsLoading(false)
+        }
+      }
+    }
+
+    loadBlurbs()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const isTranslated = language === 'english'
+
+  const themeClass = useMemo(
+    () => (isTranslated ? 'theme-dark' : 'theme-parchment'),
+    [isTranslated],
+  )
+
+  const headingFontClass = 'font-english-display'
+  const buttonFontClass = headingFontClass
+  const blurbFontClass = isTranslated
+    ? 'font-english-display'
+    : 'font-elvish-display'
+
+  const handleToggle = () => {
+    setLanguage((prev) => (prev === 'elvish' ? 'english' : 'elvish'))
+  }
+
+  const currentBlurb = blurbs[language]
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900/90 to-slate-950 text-slate-100">
-      <header className="border-b border-slate-800/60 bg-slate-900/40 backdrop-blur">
-        <div className="container flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-500">Portfolio</p>
-            <h1 className="text-2xl font-semibold sm:text-3xl">Jaspreet Bhamra</h1>
-            <p className="text-sm text-slate-400">Software Engineer · Builder · Lifelong Learner</p>
-          </div>
-          <TranslateButton />
-        </div>
-      </header>
+    <motion.div
+      className={`relative min-h-screen overflow-hidden transition-colors duration-700 ease-in-out ${themeClass}`}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={backdropVariants}
+    >
+      {isTranslated ? (
+        <div className="absolute inset-0 bg-slate-900/40" aria-hidden />
+      ) : null}
 
-      <main className="container space-y-16 py-16">
-        <section className="rounded-3xl border border-slate-800/40 bg-slate-900/40 p-10 shadow-[0_40px_120px_-60px_rgba(15,23,42,0.9)]">
-          <h2 className="text-3xl font-semibold sm:text-4xl">Hi, I&apos;m Jaspreet 👋</h2>
-          <p className="mt-4 text-lg text-slate-300">
-            Welcome to my digital home. This site will evolve into a comprehensive look at my work, experience, and interests.
-            I&apos;m currently setting the foundation for an accessible, responsive, and content-friendly personal website built with
-            React, Vite, and TailwindCSS.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-6">
-              <h3 className="text-lg font-semibold text-slate-100">What&apos;s coming next?</h3>
-              <ul className="mt-3 space-y-2 text-sm text-slate-300">
-                <li>• Resume overview and downloadable CV</li>
-                <li>• Deep dives into flagship projects</li>
-                <li>• Professional journey and key milestones</li>
-                <li>• Personal favorites, hobbies, and fun reads</li>
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-slate-800/60 bg-slate-900/60 p-6">
-              <h3 className="text-lg font-semibold text-slate-100">Tech Stack</h3>
-              <ul className="mt-3 space-y-2 text-sm text-slate-300">
-                <li>• React 19 + Vite</li>
-                <li>• TailwindCSS for rapid styling</li>
-                <li>• GitHub Pages for deployment</li>
-                <li>• GitHub Actions for CI/CD (coming soon)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="grid gap-8 md:grid-cols-2">
-          {[{
-            title: 'Resume',
-            description: 'Highlighting roles, responsibilities, and achievements from my career to date.',
-          },
-          {
-            title: 'Projects',
-            description: 'A curated selection of engineering projects, experiments, and learnings.',
-          },
-          {
-            title: 'Professional Experience',
-            description: 'Stories from the workplace—mentorship, leadership, collaboration, and impact.',
-          },
-          {
-            title: 'Fun Stuff',
-            description: 'Books, travel, creative pursuits, and the things that keep me inspired.',
-          }].map((item) => (
-            <article
-              key={item.title}
-              className="rounded-3xl border border-slate-800/60 bg-slate-900/50 p-8 transition hover:border-sky-500/50 hover:shadow-[0_30px_80px_-60px_rgba(14,116,144,0.75)]"
+      <div className="relative z-10 flex min-h-screen flex-col">
+        <header className="container flex flex-col gap-6 py-12 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex flex-col gap-4">
+            <motion.p
+              className="text-xs uppercase tracking-[0.6em] text-slate-500"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 0.8, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
             >
-              <h3 className="text-xl font-semibold text-slate-100">{item.title}</h3>
-              <p className="mt-3 text-sm text-slate-300">{item.description}</p>
-              <p className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-sky-400">
-                Coming soon
-                <span aria-hidden className="text-sky-500">→</span>
-              </p>
-            </article>
-          ))}
-        </section>
-      </main>
+              Beyond the Binary
+            </motion.p>
+            <motion.h1
+              className={`text-4xl font-semibold text-slate-100 drop-shadow-sm sm:text-5xl ${blurbFontClass}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              Jay
+            </motion.h1>
+          </div>
 
-      <footer className="border-t border-slate-800/60 bg-slate-950/80">
-        <div className="container flex flex-col gap-4 py-10 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} Jaspreet Bhamra. All rights reserved.</p>
-          <p className="text-xs">
-            Built with React, Vite, TailwindCSS, and deployed via GitHub Pages.
+          <div className="flex w-full justify-end sm:w-auto">
+            <AnimatePresence>
+              {isTranslated && !isLoading ? (
+                <motion.nav
+                  key="nav-links"
+                  initial={{ opacity: 0, y: -12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-2 flex flex-wrap gap-3 self-end sm:mt-0 sm:self-start"
+                >
+                  {navLinks.map((link) => (
+                    <motion.a
+                      key={link.label}
+                      href={link.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-slate-400/60 bg-transparent px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-100 transition-colors hover:border-sky-500 hover:text-sky-300"
+                      initial={{ opacity: 0, y: -6 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -6 }}
+                    >
+                      {link.label}
+                      <span aria-hidden className="text-sky-400">→</span>
+                    </motion.a>
+                  ))}
+                </motion.nav>
+              ) : null}
+            </AnimatePresence>
+          </div>
+        </header>
+
+        <main className={`container flex flex-1 flex-col justify-center gap-10 pb-20 ${blurbFontClass}`}>
+          {/* <section className="rounded-3xl border border-transparent bg-transparent p-10 shadow-none"> */}
+          <section className={`rounded-3xl border border-transparent bg-transparent p-10 shadow-none`}>
+            <AnimatePresence mode="wait">
+              {/* <motion.p
+                key={language}
+                variants={blurbVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 1.5 }}
+                // className="blurb-text whitespace-pre-line text-lg leading-relaxed"
+                className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${blurbFontClass}`}
+                // className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${isTranslated ? 'font-english-display' : 'font-elvish-display'}`}
+              >
+                {isLoading ? 'Loading story...' : currentBlurb}
+              </motion.p> */}
+              <motion.p
+                key={language}
+                initial={{ opacity: 0, filter: 'blur(4px)', y: 10 }}
+                animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+                exit={{ opacity: 0, filter: 'blur(6px)', y: -10 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${
+                  isTranslated ? 'font-english-display' : 'font-elvish-display'
+                }`}
+                style={{ fontFamily: isTranslated ? 'Georgia, serif' : 'Tengwar Feanor, serif' }}
+              >
+                {isLoading ? 'Loading story...' : currentBlurb}
+              </motion.p>
+            </AnimatePresence>
+          </section>
+
+          <div className="flex justify-start">
+            <TranslateButton
+              isTranslated={isTranslated}
+              onToggle={handleToggle}
+              disabled={isLoading}
+              className={`${buttonFontClass}`}
+            />
+          </div>
+        </main>
+
+        <footer className="container py-10 text-xs text-slate-500">
+          <p>
+            &copy; {new Date().getFullYear()} Jay Bhamra. Crafted with care and a hint of
+            Elvish magic.
           </p>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </motion.div>
   )
 }
 

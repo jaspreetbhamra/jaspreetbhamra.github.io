@@ -2,7 +2,16 @@
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        english: ['Playfair Display', 'serif'],          // for translated English text
+        elvish: ['Tengwar Feanor', 'serif'],     // must match your @font-face name
+      },
+      colors: {
+        parchment: '#fdf6e3', // light parchment-like background
+        gothic: '#0f172a',    // dark gothic theme background
+      },
+    },
   },
   plugins: [],
 }

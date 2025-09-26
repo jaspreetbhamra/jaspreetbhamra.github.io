@@ -1,42 +1,61 @@
 # Task for Codex
 
-Build me the basic scaffold for a personal portfolio/profile website.
+Update the homepage to use a JSON-based English ↔ Elvish mapping instead of a translation function.
 
 ## Requirements
-1. Framework: React + Vite.
-2. Styling: TailwindCSS.
-3. Project Structure: Follow repo guidelines in Agents.md (components, pages, assets, utils).
-4. Page: Start with the Homepage (`src/pages/Home.jsx`) as the entry point.
-5. Theme: Aesthetic should resemble *Lord of the Rings*:
-   - Background looks like a page from an old manuscript (parchment style).
-   - Add fantasy-style elements/images (Elvish script, subtle graphics, fantasy borders).
-6. Content:
-   - Title: Display my name (use `"Jay"` as placeholder).
-   - Body: Lorem Ipsum text, but rendered in an **Elvish-style fantasy font**.
-7. Button:
-   - Text: Something cool like `"Reveal the Translation"` (instead of "Click here to Translate").
-   - Behavior:
-     - On click, call a backend function (mock with `/api/translate`) that returns the English version of the text.
-     - Animate a **transition where the Elvish letters transform into English** (fade/morph effect).
-   - Put button below the main text.
 
-## Extra Implementation Details
-- Put Elvish font in `/src/assets/fonts/` and configure it via Tailwind.
-- Mock backend call in a file like `src/utils/api.js` that resolves with English text.
-- Implement animation with Tailwind transitions or Framer Motion.
-- File structure should look like:
-```
-src/
-pages/Home.jsx
-components/TranslateButton.jsx
-utils/api.js
-styles/global.css
-```
+### Initial State (on page load)
+- Background: parchment/old manuscript theme (`theme-parchment`).
+- Title: Display my name ("Jay").
+- Blurb: Render **Elvish version** of the text from a JSON mapping file.
+  - JSON file lives in `/src/data/home_translation.json`.
+  - Example format:
+    ```json
+    {
+      "blurb": {
+        "english": "Lorem ipsum dolor sit amet...",
+        "elvish": "⟨Elvish Tengwar text here⟩"
+      }
+    }
+    ```
+  - Use the `"elvish"` value for initial rendering.
+  - Font: Tengwar (assume `src/assets/fonts/tengwarfeanorregular.ttf`).
+- Button: `"Click here to translate"` appears below the blurb.
 
+### On Translate Button Click
+- Animate a transition:
+  - Background/theme shifts from `theme-parchment` → `theme-dark`.
+  - Blurb text morphs/fades from Elvish → English (swap from `translations.json`).
+  - Font changes from Tengwar → system serif.
+- Navigation buttons fade in:
+  - "Resume"
+  - "Projects"
+  - "Contact"
 
-## Deliverables
-- React component for `Home.jsx` (parchment background, fantasy font).
-- `TranslateButton` component that triggers backend call + text transformation.
-- Basic mock API function (`api.js`) that returns translated text.
-- Ensure homepage is routed as default entry point (`App.jsx`).
+### Implementation Notes
+- **Frontend**:
+  - React functional components with TailwindCSS.
+  - Use Framer Motion for smooth transitions (fade/morph).
+  - Blurb text should be dynamically selected from the JSON mapping.
+  - Create a `TranslateButton` component with onClick handler.
+- **Backend**:
+  - Create a utility in `src/utils/api.js` to load and serve `translations.json` content.
+  - Function:
+    ```js
+    export async function getBlurb(language = "elvish") {
+      const data = await import("../data/translations.json");
+      return data.blurb[language];
+    }
+    ```
+- **Themes**:
+  - `theme-parchment`: parchment background, Elvish font, use the parchment background available at `src/assets/images/parchment-bg.jpg`.
+  - `theme-dark`: dark gothic background, serif font.
+- **Fonts**:
+  - Assume Tengwar font file exists at `/src/assets/fonts/tengwarfeanorregular.ttf`.
+
+### Deliverables
+- Updated `Home.jsx` with theme + language toggle logic.
+- `TranslateButton.jsx` component.
+- `api.js` utility to fetch from `translations.json`.
+- Tailwind classes for `theme-parchment` and `theme-dark` in `global.css`.
 

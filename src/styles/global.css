@@ -2,12 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Tengwar Feanor';
+  src: url('../assets/fonts/tengwarfeanorregular.ttf') format('truetype');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/* @font-face {
+  font-family: 'Tengwar';
+  src: url('/src/assets/fonts/tengwar.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
 :root {
   color-scheme: light dark;
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 min-h-screen antialiased;
+  @apply min-h-screen antialiased transition-colors duration-700 ease-out;
+  background-color: #020617;
+  color: #e2e8f0;
 }
 
 a {
@@ -16,4 +34,44 @@ a {
 
 .container {
   @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+}
+
+.theme-parchment {
+  color: #2c200d;
+  background-image: url('../assets/images/parchment-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* .theme-parchment {
+  @apply bg-yellow-50 text-gray-900;
+  font-family: 'TengwarFeanor', serif;
+  background-image: url('../assets/images/parchment-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: all 0.5s ease-in-out;
+} */
+
+.theme-parchment .blurb-text {
+  font-family: 'Tengwar Feanor', 'Segoe Script', 'Snell Roundhand', cursive;
+  color: #2c200d;
+}
+
+.theme-dark {
+  color: #e2e8f0;
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.85), rgba(2, 6, 23, 0.95));
+}
+
+.theme-dark .blurb-text {
+  font-family: 'Playfair Display', 'Georgia', serif;
+}
+
+.font-elvish-display {
+  font-family: 'Tengwar Feanor', 'Segoe Script', 'Snell Roundhand', cursive;
+}
+
+.font-english-display {
+  font-family: 'Playfair Display', 'Georgia', serif;
 }

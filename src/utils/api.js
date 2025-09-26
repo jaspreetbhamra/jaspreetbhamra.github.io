@@ -1,12 +1,24 @@
+let cachedTranslations
+
+const loadTranslations = async () => {
+  if (cachedTranslations) {
+    return cachedTranslations
+  }
+
+  const module = await import('../data/translations.json')
+  cachedTranslations = module.default ?? module
+  return cachedTranslations
+}
+
 /**
- * Placeholder API layer for future integrations (e.g., CMS, GitHub).
- * Replace with real endpoints as the site matures.
+ * Fetches the homepage blurb in the requested language.
+ * Defaults to Elvish to support the initial parchment view.
  */
-export const fetchContent = async (resource) => {
-  console.info(`fetchContent called for: ${resource}`)
-  return []
+export const getBlurb = async (language = 'elvish') => {
+  const data = await loadTranslations()
+  return data?.blurb?.[language] ?? ''
 }
 
 export default {
-  fetchContent,
+  getBlurb,
 }

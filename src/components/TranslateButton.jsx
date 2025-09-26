@@ -1,23 +1,60 @@
-import { useState } from 'react'
+// import PropTypes from 'prop-types'
+// import { motion } from 'framer-motion'
 
-const LANGUAGE_OPTIONS = ['English', 'Punjabi']
+// const TranslateButton = ({
+//   isTranslated,
+//   onToggle,
+//   disabled = false,
+//   className = '',
+// }) => {
+//   const label = isTranslated ? 'Return to Elvish' : 'Click here to translate'
 
-const TranslateButton = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+//   return (
+//     <motion.button
+//       type="button"
+//       onClick={onToggle}
+//       disabled={disabled}
+//       whileHover={{ scale: disabled ? 1 : 1.02 }}
+//       whileTap={{ scale: disabled ? 1 : 0.98 }}
+//       className={`inline-flex items-center gap-3 rounded-full border border-slate-700/50 bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-200 transition-colors duration-200 hover:border-sky-400 hover:text-sky-300 disabled:cursor-not-allowed disabled:opacity-70 ${className}`}
+//     >
+//       <span className="block size-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
+//       {label}
+//     </motion.button>
+//   )
+// }
 
-  const handleToggle = () => {
-    setActiveIndex((prev) => (prev + 1) % LANGUAGE_OPTIONS.length)
-  }
+// TranslateButton.propTypes = {
+//   isTranslated: PropTypes.bool.isRequired,
+//   onToggle: PropTypes.func.isRequired,
+//   disabled: PropTypes.bool,
+//   className: PropTypes.string,
+// }
 
+// export default TranslateButton
+
+
+import { motion } from 'framer-motion'
+
+const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
   return (
-    <button
-      type="button"
-      onClick={handleToggle}
-      className="inline-flex items-center gap-2 rounded-full bg-slate-800/60 px-4 py-2 text-sm font-medium text-slate-100 ring-1 ring-slate-600/40 transition hover:bg-slate-700/80 hover:text-white"
+    <motion.button
+      onClick={onToggle}
+      disabled={disabled}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      animate={{
+        backgroundColor: isTranslated ? '#0f172a' : '#fdf6e3',
+        color: isTranslated ? '#fdf6e3' : '#0f172a',
+        boxShadow: isTranslated
+          ? '0px 0px 12px rgba(173, 216, 230, 0.8)' // bluish glow
+          : '0px 0px 12px rgba(139, 69, 19, 0.6)',  // warm parchment glow
+      }}
+      transition={{ duration: 0.6, ease: 'easeInOut' }}
+      className={`rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider ${className}`}
     >
-      <span className="size-2 rounded-full bg-emerald-400" />
-      {LANGUAGE_OPTIONS[activeIndex]}
-    </button>
+      {isTranslated ? 'Return to Elvish' : 'Click here to Translate'}
+    </motion.button>
   )
 }
 
