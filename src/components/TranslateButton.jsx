@@ -34,6 +34,61 @@
 // export default TranslateButton
 
 
+// import { motion } from 'framer-motion'
+
+// const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
+//   return (
+//     <motion.button
+//       onClick={onToggle}
+//       disabled={disabled}
+//       whileHover={{ scale: 1.05 }}
+//       whileTap={{ scale: 0.95 }}
+//       animate={{
+//         backgroundColor: isTranslated ? '#0f172a' : '#fdf6e3',
+//         color: isTranslated ? '#fdf6e3' : '#0f172a',
+//         boxShadow: isTranslated
+//           ? '0px 0px 12px rgba(173, 216, 230, 0.8)' // bluish glow
+//           : '0px 0px 12px rgba(139, 69, 19, 0.6)',  // warm parchment glow
+//       }}
+//       transition={{ duration: 0.6, ease: 'easeInOut' }}
+//       className={`rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider ${className}`}
+//     >
+//       {isTranslated ? 'Return to Elvish' : 'Click here to Translate'}
+//     </motion.button>
+//   )
+// }
+
+// export default TranslateButton
+
+
+// import { motion } from 'framer-motion'
+
+// const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
+//   return (
+//     <motion.button
+//       onClick={onToggle}
+//       disabled={disabled}
+//       whileHover={{ scale: 1.1, rotate: [-1, 1, -1, 0] }}
+//       whileTap={{ scale: 0.95 }}
+//       animate={{
+//         backgroundColor: isTranslated ? '#0f172a' : '#fdf6e3',
+//         color: isTranslated ? '#fdf6e3' : '#2c1810',
+//         boxShadow: isTranslated
+//           ? '0 0 20px rgba(135, 206, 250, 0.8), 0 0 40px rgba(135, 206, 250, 0.6)'
+//           : '0 0 15px rgba(222, 184, 135, 0.7), 0 0 30px rgba(205, 133, 63, 0.5)',
+//       }}
+//       transition={{ duration: 0.6, ease: 'easeInOut' }}
+//       className={`rounded-full px-8 py-3 text-sm font-semibold tracking-wider shadow-lg ${className}`}
+//     >
+//       {isTranslated ? '🔮 Return to the Ancient Tongue' : '✨ Reveal the Hidden Words'}
+//     </motion.button>
+//   )
+// }
+
+// export default TranslateButton
+
+
+
 import { motion } from 'framer-motion'
 
 const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
@@ -41,21 +96,21 @@ const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
     <motion.button
       onClick={onToggle}
       disabled={disabled}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      animate={{
-        backgroundColor: isTranslated ? '#0f172a' : '#fdf6e3',
-        color: isTranslated ? '#fdf6e3' : '#0f172a',
+      whileHover={{
+        scale: 1.1,
         boxShadow: isTranslated
-          ? '0px 0px 12px rgba(173, 216, 230, 0.8)' // bluish glow
-          : '0px 0px 12px rgba(139, 69, 19, 0.6)',  // warm parchment glow
+          ? '0 0 20px rgba(135, 206, 250, 0.8), 0 0 40px rgba(135, 206, 250, 0.6)'
+          : '0 0 15px rgba(222, 184, 135, 0.7), 0 0 30px rgba(205, 133, 63, 0.5)',
       }}
-      transition={{ duration: 0.6, ease: 'easeInOut' }}
-      className={`rounded-full px-6 py-3 text-sm font-semibold uppercase tracking-wider ${className}`}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      className={`rounded-full px-8 py-3 text-sm font-semibold tracking-wider shadow-md ${className}`}
     >
-      {isTranslated ? 'Return to Elvish' : 'Click here to Translate'}
+      {isTranslated ? '🔮 Return to the Ancient Tongue' : '✨ Reveal the Hidden Words'}
     </motion.button>
   )
 }
 
 export default TranslateButton
+
+
