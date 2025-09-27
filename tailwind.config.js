@@ -10,6 +10,7 @@ export default {
       colors: {
         parchment: '#fdf6e3', // light parchment-like background
         gothic: '#0f172a',    // dark gothic theme background
+        'parchment-burnt': '#ede3c8', // warm parchment base
       },
     },
   },

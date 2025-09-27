@@ -77,12 +77,13 @@ const Home = () => {
   const currentBlurb = blurbs[language]
 
   return (
+    <div className={`relative min-h-screen ${themeClass} theme-overlay`}>
     <motion.div
       // className={`relative min-h-screen overflow-hidden transition-colors duration-700 ease-in-out ${themeClass}`}
       // initial="initial"
       // animate="animate"
       // exit="exit"
-      className={`relative min-h-screen overflow-hidden transition-colors duration-700 ${themeClass}`}
+      className={`relative min-h-screen overflow-x-hidden transition-colors duration-700 ease-in-out ${themeClass}`}
       initial={{ x: '-100%' }}
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
@@ -90,7 +91,7 @@ const Home = () => {
       variants={backdropVariants}
     >
       {isTranslated ? (
-        <div className="absolute inset-0 bg-slate-900/40" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-slate-900/40" aria-hidden />
       ) : null}
 
       <div className="relative z-10 flex min-h-screen flex-col">
@@ -110,7 +111,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Jay
+              Jaspreet Kaur Bhamra
             </motion.h1>
           </div>
 
@@ -145,86 +146,38 @@ const Home = () => {
         </header>
 
         <main className={`container flex flex-1 flex-col justify-center gap-10 pb-20`}>
-          {/* <section className="rounded-3xl border border-transparent bg-transparent p-10 shadow-none"> */}
-          <section className={`rounded-3xl border border-transparent bg-transparent p-10 shadow-none`}>
-            <div className="relative min-h-[3rem]"> {/* Fixed area for text */}
-              <AnimatePresence mode="wait">
-                {/* <motion.p
+          <section className="rounded-3xl border border-transparent bg-transparent p-10 shadow-none">
+            {/* Fixed blurb viewport: constant height, scrolls internally if long */}
+            <div className="relative min-h-[30vh] max-h-[50vh] overflow-y-auto">
+              <AnimatePresence mode="popLayout">
+                {/* Outgoing/incoming layer crossfade in-place */}
+                <motion.div
                   key={language}
-                  variants={blurbVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={{ duration: 1.5 }}
-                  // className="blurb-text whitespace-pre-line text-lg leading-relaxed"
-                  className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${blurbFontClass}`}
-                  // className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${isTranslated ? 'font-english-display' : 'font-elvish-display'}`}
-                >
-                  {isLoading ? 'Loading story...' : currentBlurb}
-                </motion.p> */}
-                {/* <motion.p
-                  key={language}
-                  initial={{
-                    opacity: 0,
-                    filter: 'blur(8px)',
-                    letterSpacing: '0.4em',
-                  }}
-                  animate={{
-                    opacity: 1,
-                    filter: 'blur(0px)',
-                    letterSpacing: '0.05em',
-                    color: isTranslated ? '#f1f5f9' : '#1c1917',
-                    textShadow: isTranslated
-                      ? '0px 0px 12px rgba(135, 206, 250, 0.9)' // icy glow for English
-                      : '0px 0px 10px rgba(255, 215, 0, 0.8)', // golden glow for Elvish
-                  }}
-                  exit={{
-                    opacity: 0,
-                    filter: 'blur(12px)',
-                    letterSpacing: '0.5em',
-                    textShadow: '0px 0px 25px rgba(255, 140, 0, 0.9)', // fiery ash glow
-                  }}
-                  transition={{
-                    duration: 2.0,
-                    ease: 'easeInOut',
-                  }}
-                  className={`absolute inset-0 blurb-text whitespace-pre-line text-lg leading-relaxed ${
+                  initial={{ opacity: 0, filter: 'blur(8px)', letterSpacing: '0.25em' }}
+                  animate={{ opacity: 1, filter: 'blur(0px)', letterSpacing: '0.03em' }}
+                  exit={{ opacity: 0, filter: 'blur(8px)', letterSpacing: '0.35em' }}
+                  transition={{ duration: 1.2, ease: 'easeInOut' }}
+                  className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${
                     isTranslated ? 'font-english-display' : 'font-elvish-display'
                   }`}
                   style={{
                     fontFamily: isTranslated ? 'Playfair Display, serif' : 'Tengwar Feanor, serif',
                   }}
                 >
-                  {isLoading ? 'Summoning the Tale...' : currentBlurb}
-                </motion.p> */}
-                <motion.p
-                  key={language}
-                  initial={{ opacity: 0, filter: 'blur(8px)' }}
-                  animate={{ opacity: 1, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, filter: 'blur(8px)' }}
-                  transition={{ duration: 1.5, ease: 'easeInOut' }}
-                  className={`absolute inset-1 blurb-text whitespace-pre-line text-lg leading-relaxed ${
-                    isTranslated ? 'font-english-display' : 'font-elvish-display'
-                  }`}
-                  style={{
-                    fontFamily: isTranslated
-                      ? 'Playfair Display, serif'
-                      : 'Tengwar Feanor, serif',
-                  }}
-                >
                   {isLoading ? 'Summoning the tale...' : currentBlurb}
-                </motion.p>
+                </motion.div>
               </AnimatePresence>
             </div>
           </section>
-
           <div className="flex justify-start">
-            <TranslateButton
-              isTranslated={isTranslated}
-              onToggle={handleToggle}
-              disabled={isLoading}
-              className={`${buttonFontClass}`}
-            />
+            <div className="relative z-10">
+              <TranslateButton
+                isTranslated={isTranslated}
+                onToggle={handleToggle}
+                disabled={isLoading}
+                className={buttonFontClass}
+              />
+            </div>
           </div>
         </main>
 
@@ -236,6 +189,7 @@ const Home = () => {
         </footer>
       </div>
     </motion.div>
+    </div>
   )
 }
 
