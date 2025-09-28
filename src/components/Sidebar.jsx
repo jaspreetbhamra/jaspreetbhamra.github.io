@@ -1,12 +1,11 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6"
-import { FaGoogleScholar } from "react-icons/fa" // Scholar is only in the older FA package
+import { FaGithub, FaLinkedin, FaTwitter, FaGraduationCap } from "react-icons/fa6"
 import { HiOutlineMail, HiPhone } from "react-icons/hi"
 
 const socials = [
   { label: "GitHub", href: "https://github.com/yourusername", icon: FaGithub },
   { label: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: FaLinkedin },
   { label: "Twitter", href: "https://twitter.com/yourhandle", icon: FaTwitter },
-  { label: "Scholar", href: "https://scholar.google.com/citations?user=XXXXXX", icon: FaGoogleScholar },
+  { label: "Scholar", href: "https://scholar.google.com/citations?user=XXXXXX", icon: FaGraduationCap },
 ]
 
 const Sidebar = ({ textColorClass, headingFontClass }) => {

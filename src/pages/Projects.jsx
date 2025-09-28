@@ -1,4 +1,5 @@
 import { FaGithub } from "react-icons/fa"
+import Sidebar from "../components/Sidebar"
 
 const projects = [
   {
@@ -22,9 +23,7 @@ const Projects = () => {
   return (
     <div className="theme-dark min-h-screen flex flex-col lg:flex-row fantasy-page">
       {/* Sidebar stays the same as Home */}
-      <aside className="fantasy-page relative flex flex-col items-center gap-6 p-8 lg:w-1/4 lg:sticky lg:top-0 lg:h-screen">
-        {/* TODO: import your sidebar JSX from Home.jsx */}
-      </aside>
+      <Sidebar textColorClass="text-slate-100" headingFontClass="font-english-display" />
 
       {/* Main Content */}
       <main className="flex-1 p-10 flex flex-col gap-10">

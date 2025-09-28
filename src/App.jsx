@@ -1,15 +1,6 @@
-// import Home from './pages/Home.jsx'
-
-// const App = () => {
-//   return <Home />
-// }
-
-// export default App
-
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home.jsx"
-import Projects from "./pages/Projects.jsx"
+import Home from "./pages/Home"
+import Projects from "./pages/Projects"
 
 function App() {
   return (
@@ -23,3 +14,13 @@ function App() {
 }
 
 export default App
+
+
+
+// import Home from './pages/Home.jsx'
+
+// const App = () => {
+//   return <Home />
+// }
+
+// export default App
