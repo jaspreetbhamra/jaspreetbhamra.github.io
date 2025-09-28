@@ -1,0 +1,17 @@
+<!-- deco-frame.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round">
+  <title>Art Deco Frame</title>
+  <!-- outer rect with generous inset -->
+  <rect x="18" y="18" width="1164" height="764" rx="8" opacity=".2"/>
+  <!-- stepped corners -->
+  <path d="M70 40h160M40 70v160M1130 40h-160M1160 70v160M70 760h160M40 730v-160M1130 760h-160M1160 730v-160" opacity=".35"/>
+  <!-- inner frame -->
+  <rect x="90" y="90" width="1020" height="620" rx="4"/>
+  <!-- corner sunbursts -->
+  <g opacity=".6">
+    <path d="M120 120h40M120 120v40M140 120v40M120 140h40"/>
+    <path d="M1080 120h-40M1080 120v40M1060 120v40M1040 140h40"/>
+    <path d="M120 680h40M120 680v-40M140 680v-40M120 660h40"/>
+    <path d="M1080 680h-40M1080 680v-40M1060 680v-40M1040 660h40"/>
+  </g>
+</svg>

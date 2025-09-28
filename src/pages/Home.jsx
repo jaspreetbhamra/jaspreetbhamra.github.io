@@ -8,7 +8,7 @@ import TranslateButton from '../components/TranslateButton.jsx'
 import { getBlurb } from '../utils/api.js'
 
 const navLinks = [
-  { label: 'Resume', href: '#resume' },
+  { label: 'Resume', href: '/src/assets/resume_jaspreet.pdf', external: true },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -110,18 +110,16 @@ const Home = () => {
           <aside
             className={`fantasy-page relative flex flex-col items-center gap-6 p-8
               lg:w-1/4 lg:sticky lg:top-0 lg:h-screen
-              ${themeClass}
             `}
           >
-            {/* Binding divider (book spine illusion) */}
+            {/* Binding divider */}
             <div className="pointer-events-none absolute right-0 top-0 h-full w-6 bg-gradient-to-l from-black/30 to-transparent opacity-50" />
-
-            
+                      
             <div className="pointer-events-none absolute inset-0 opacity-25 mix-blend-multiply sidebar-noise" />
             <div className="pointer-events-none absolute inset-0 sidebar-shadow" />
             {/* Profile Image */}
             <img
-              src="/src/assets/profile.jpg"
+              src="src/assets/images/profile.jpeg"
               alt="Profile"
               className="h-36 w-36 rounded-full border-4 border-slate-300 object-cover shadow-lg"
             />
@@ -180,10 +178,11 @@ const Home = () => {
 
 
           {/* Main Content */}
-          <main className="fantasy-page flex flex-1 flex-col justify-center gap-10 p-10">
+          <main className={`fantasy-page flex flex-1 flex-col justify-center gap-10 p-10`}>
 
             <section className="rounded-3xl border border-transparent bg-transparent shadow-none">
-              <div className="relative min-h-[30vh] max-h-[50vh] overflow-y-auto">
+              {/* <div className="relative min-h-[30vh] max-h-[50vh] overflow-y-auto"> */}
+              <div className="relative min-h-[20vh] max-h-[80vh]">
                 <AnimatePresence mode="popLayout">
                   <motion.div
                     key={language}
@@ -223,7 +222,7 @@ const Home = () => {
                   isTranslated={isTranslated}
                   onToggle={handleToggle}
                   disabled={isLoading}
-                  className={`${buttonFontClass} ${textColorClass}`}
+                  className={`translate-btn ${buttonFontClass} ${textColorClass}`}
                 />
               </div>
             </div>
@@ -243,6 +242,8 @@ const Home = () => {
                     <motion.a
                       key={link.label}
                       href={link.href}
+                      target={link.external ? "_blank" : "_self"}
+                      rel={link.external ? "noopener noreferrer" : undefined}
                       className="inline-flex items-center gap-2 rounded-full border border-slate-400/60 bg-transparent px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors hover:border-sky-500 hover:text-sky-300"
                       initial={{ opacity: 0, y: -6 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -252,18 +253,31 @@ const Home = () => {
                       <span aria-hidden className="text-sky-400">→</span>
                     </motion.a>
                   ))}
+
                 </motion.nav>
               )}
             </AnimatePresence>
           </main>
         </div>
 
-        <footer className="container py-10 text-xs text-slate-500 text-center lg:text-left">
+        <footer
+          className={`fantasy-page relative w-full py-6 mt-auto text-xs text-center border-t border-slate-400/30 ${textColorClass}`}
+        >
+          {/* Ornamental flourish / rune mark */}
+          <div className="flex justify-center mb-2">
+            <img
+              src="src/assets/images/flourish.svg"
+              alt="Ornamental flourish"
+              className="h-6 flourish-mark"
+            />
+          </div>
+
           <p>
-            &copy; {new Date().getFullYear()} Jaspreet Kaur Bhamra. Crafted with
-            care and a hint of Elvish magic.
+            &copy; {new Date().getFullYear()} Jaspreet Kaur Bhamra. Crafted with care and a hint of Elvish magic.
           </p>
         </footer>
+
+
       </motion.div>
     </div>
     </div>
