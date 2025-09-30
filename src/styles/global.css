@@ -435,3 +435,22 @@ a {
   border-color: rgba(160, 200, 255, 0.6);
   color: #f0f6ff;
 }
+
+
+/* Navbar buttons (same glowing hover as Translate) */
+.nav-btn {
+  @apply inline-flex items-center gap-2 rounded-full border border-slate-400/60 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors;
+  background-color: rgba(40, 40, 40, 0.4);
+  color: #e5e7eb;
+}
+
+.nav-btn:hover {
+  border-color: #38bdf8; /* sky-400 */
+  color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6), 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+/* nav.sticky {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+} */
+

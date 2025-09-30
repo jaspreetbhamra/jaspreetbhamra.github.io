@@ -1,5 +1,8 @@
 import { FaGithub } from "react-icons/fa"
 import Sidebar from "../components/Sidebar"
+import { Link } from "react-router-dom"
+import Navbar from "../components/Navbar"
+
 
 const projects = [
   {
@@ -22,6 +25,7 @@ const projects = [
 const Projects = () => {
   return (
     <div className="theme-dark min-h-screen flex flex-col lg:flex-row fantasy-page">
+      <Navbar />
       {/* Sidebar stays the same as Home */}
       <Sidebar textColorClass="text-slate-100" headingFontClass="font-english-display" />
 

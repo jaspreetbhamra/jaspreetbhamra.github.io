@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { FaGithub, FaLinkedin, FaTwitter, FaGoogleScholar } from 'react-icons/fa6'
 import { HiOutlineMail, HiPhone } from 'react-icons/hi'
 import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import Navbar from "../components/Navbar"
 
 
 import TranslateButton from '../components/TranslateButton.jsx'
@@ -38,8 +40,15 @@ const blurbVariants = {
 const fiberVariants = ['theme-parchment-fibers-1', 'theme-parchment-fibers-2', 'theme-parchment-fibers-3']
 const randomFiber = fiberVariants[Math.floor(Math.random() * fiberVariants.length)]
 
+
 const Home = () => {
-  const [language, setLanguage] = useState('elvish')
+  const location = useLocation()
+  const params = new URLSearchParams(location.search)
+
+  const defaultLang = params.get("lang") || "elvish"
+  const [language, setLanguage] = useState(defaultLang)
+
+  // const [language, setLanguage] = useState('elvish')
   const [blurbs, setBlurbs] = useState({ elvish: '', english: '' })
   const [isLoading, setIsLoading] = useState(true)
 
@@ -107,6 +116,8 @@ const Home = () => {
             aria-hidden
           />
         )}
+
+        {isTranslated && <Navbar />}
 
         <div className="relative z-10 flex min-h-screen flex-col lg:flex-row">
           {/* Left Sidebar */}
