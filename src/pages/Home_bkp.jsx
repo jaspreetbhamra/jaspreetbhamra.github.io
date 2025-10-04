@@ -10,7 +10,7 @@ import { getBlurb } from '../utils/api.js'
 const navLinks = [
   { label: 'Resume', href: '/src/assets/resume_jaspreet.pdf', external: true },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Experience', href: '#experience' },
 ]
 
 const socials = [

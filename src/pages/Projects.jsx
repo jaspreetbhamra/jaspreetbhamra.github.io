@@ -2,6 +2,7 @@ import { FaGithub } from "react-icons/fa"
 import Sidebar from "../components/Sidebar"
 import { Link } from "react-router-dom"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 
 const projects = [
@@ -22,42 +23,48 @@ const projects = [
   },
 ]
 
+const textFontClass = 'font-english-display'
+
 const Projects = () => {
   return (
-    <div className="theme-dark min-h-screen flex flex-col lg:flex-row fantasy-page">
-      <Navbar />
-      {/* Sidebar stays the same as Home */}
-      <Sidebar textColorClass="text-slate-100" headingFontClass="font-english-display" />
+    <div className={`relative min-h-screen theme-dark theme-overlay`}>
+        <Navbar />
 
-      {/* Main Content */}
-      <main className="flex-1 p-10 flex flex-col gap-10">
-        {/* Blurb */}
-        <section className="text-center lg:text-left">
-          <h1 className="text-3xl font-bold text-slate-100 mb-2">Projects</h1>
-          <p className="text-slate-300">
-            A collection of my favorite works — blending machine learning, data science, and creativity.
-          </p>
-        </section>
+        {/* Content wrapper */}
+        <div className="relative z-10 flex min-h-screen flex-col lg:flex-row">
+            {/* Sidebar (reuse component) */}
+            <Sidebar textColorClass="text-slate-100" headingFontClass={textFontClass} />
+            {/* <main className="flex-1 p-10 flex flex-col gap-10"> */}
+            <main className="flex-1 px-6 sm:px-10 flex flex-col gap-10 mt-16 sm:mt-24">
+                {/* Blurb */}
+                <section className={`text-center lg:text-left ${textFontClass}`}>
+                <h1 className="text-3xl font-bold text-slate-100 mb-2">Projects</h1>
+                <p className="text-slate-300">
+                    A collection of my favorite works — blending machine learning, data science, and creativity.
+                </p>
+                </section>
 
-        {/* Project Panels */}
-        <section className="grid gap-6 md:grid-cols-2">
-          {projects.map((proj) => (
-            <a
-              key={proj.name}
-              href={proj.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-2xl border border-slate-600 bg-slate-800/40 p-6 hover:border-sky-400 hover:shadow-lg transition-all"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <FaGithub className="h-6 w-6 text-sky-400" />
-                <h2 className="text-xl font-semibold text-slate-100">{proj.name}</h2>
-              </div>
-              <p className="text-slate-300">{proj.description}</p>
-            </a>
-          ))}
-        </section>
-      </main>
+                {/* Project Panels */}
+                <section className="grid gap-6 md:grid-cols-2">
+                {projects.map((proj) => (
+                    <a
+                    key={proj.name}
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-2xl border border-slate-600 bg-slate-800/40 p-6 hover:border-sky-400 hover:shadow-lg transition-all"
+                    >
+                    <div className="flex items-center gap-3 mb-3">
+                        <FaGithub className="h-6 w-6 text-sky-400" />
+                        <h2 className="text-xl font-semibold text-slate-100">{proj.name}</h2>
+                    </div>
+                    <p className="text-slate-300">{proj.description}</p>
+                    </a>
+                ))}
+                </section>
+            </main>
+        </div>
+        <Footer />
     </div>
   )
 }

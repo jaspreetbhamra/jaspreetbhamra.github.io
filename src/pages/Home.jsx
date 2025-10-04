@@ -15,7 +15,7 @@ import Sidebar from "../components/Sidebar"
 const navLinks = [
   { label: 'Resume', href: 'https://drive.google.com/file/d/1dutCWoKjZ_n3XdYozZNvu5iDTLdihdAT/view?usp=drive_link', external: true },
   { label: 'Projects', href: '/projects' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Experience', href: '#experience' },
 ]
 
 const socials = [
@@ -87,7 +87,7 @@ const Home = () => {
   const headingFontClass = 'font-english-display'
   const buttonFontClass = headingFontClass
   const blurbFontClass = isTranslated
-    ? 'font-english-display'
+    ? {headingFontClass}
     : 'font-elvish-display'
 
   const textColorClass = isTranslated ? 'text-slate-100' : 'text-slate-800'
@@ -110,12 +110,13 @@ const Home = () => {
         transition={{ duration: 1.2, ease: 'easeInOut' }}
         variants={backdropVariants}
       >
-        {isTranslated && (
+        {/* // Uncomment the following to add a dark overlay in dark mode */}
+        {/* {isTranslated && (
           <div
             className="pointer-events-none absolute inset-0 bg-slate-900/40"
             aria-hidden
           />
-        )}
+        )} */}
 
         {isTranslated && <Navbar />}
 
@@ -150,11 +151,14 @@ const Home = () => {
                     }}
                     transition={{ duration: 1.2, ease: 'easeInOut' }}
                     className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${blurbFontClass} ${textColorClass}`}
-                    style={{
-                      fontFamily: isTranslated
-                        ? 'Playfair Display, serif'
-                        : 'Tengwar Feanor, serif',
-                    }}
+                    // style={{
+                    //   fontFamily: isTranslated
+                    //     ? 'Playfair Display, serif'
+                    //     : 'Tengwar Feanor, serif',
+                    // }}
+                    // style={{
+                    //   fontFamily: {blurbFontClass}
+                    // }}
                   >
                     {isLoading ? 'Summoning the tale...' : currentBlurb}
                   </motion.div>
@@ -175,7 +179,7 @@ const Home = () => {
             </div>
 
             {/* Nav links (only after translation) */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
               {isTranslated && !isLoading && (
                 <motion.nav
                   key="nav-links"
@@ -203,7 +207,7 @@ const Home = () => {
 
                 </motion.nav>
               )}
-            </AnimatePresence>
+            </AnimatePresence> */}
           </main>
         </div>
 

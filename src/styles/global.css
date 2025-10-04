@@ -286,16 +286,23 @@ a {
 
 
 .theme-dark .blurb-text {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  /* font-family: 'Playfair Display', 'Georgia', serif; */
+  @apply font-display;
 }
 
 .font-elvish-display {
   font-family: 'Tengwar Feanor', 'Segoe Script', 'Snell Roundhand', cursive;
+  /* @apply font-elvish; */
 }
 
 .font-english-display {
-  font-family: 'Playfair Display', 'Georgia', serif;
+  /* font-family: 'Playfair Display', 'Georgia', serif; */
+  @apply font-display;
 }
+.font-english-sans {
+  @apply font-sans;
+}
+
 
 
 /* Fantasy manuscript page */

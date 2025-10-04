@@ -1,40 +1,23 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const navLinks = [
   { label: "Resume", href: "/resume.pdf", external: true },
   { label: "Projects", href: "/projects", external: false },
-  { label: "Contact", href: "#contact", external: false }, // can later route to /contact
+  { label: "Experience", href: "/experience", external: false }, // placeholder
 ]
 
-// const Navbar = () => {
-//   return (
-//     <nav className="sticky top-0 right-0 z-30 flex justify-end gap-4 bg-transparent backdrop-blur-sm p-4">
-//       {navLinks.map((link) =>
-//         link.external ? (
-//           <a
-//             key={link.label}
-//             href={link.href}
-//             target="_blank"
-//             rel="noopener noreferrer"
-//             className="nav-btn"
-//           >
-//             {link.label}
-//           </a>
-//         ) : (
-//           <Link key={link.label} to={link.href} className="nav-btn">
-//             {link.label}
-//           </Link>
-//         )
-//       )}
-//     </nav>
-//   )
-// }
-
-
 const Navbar = () => {
+  const location = useLocation()
+  const isHome = location.pathname === "/"
+
+  // Extra Back to Home link (only when NOT on Home)
+  const linksToRender = isHome
+    ? navLinks
+    : [{ label: "Back to Home", href: "/?lang=english", external: false }, ...navLinks]
+
   return (
     <nav className="absolute top-4 right-6 flex gap-4 z-20">
-      {navLinks.map((link) =>
+      {linksToRender.map((link) =>
         link.external ? (
           <a
             key={link.label}
@@ -56,5 +39,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
-
