@@ -461,3 +461,26 @@ a {
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 } */
 
+
+/* Fluid font based on display size */
+@layer utilities {
+  .text-fluid-sm {
+    font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+  }
+
+  .text-fluid-base {
+    font-size: clamp(1rem, 0.95rem + 0.4vw, 1.2rem);
+  }
+
+  .text-fluid-lg {
+    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+  }
+
+  .text-fluid-xl {
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.5rem);
+  }
+
+  .text-fluid-2xl {
+    font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  }
+}
