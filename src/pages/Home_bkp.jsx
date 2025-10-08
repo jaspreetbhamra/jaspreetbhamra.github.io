@@ -8,7 +8,7 @@ import TranslateButton from '../components/TranslateButton.jsx'
 import { getBlurb } from '../utils/api.js'
 
 const navLinks = [
-  { label: 'Resume', href: '/src/assets/resume_jaspreet.pdf', external: true },
+  { label: 'Resume', href: '//assets/resume_jaspreet.pdf', external: true },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
 ]
@@ -119,7 +119,7 @@ const Home = () => {
             <div className="pointer-events-none absolute inset-0 sidebar-shadow" />
             {/* Profile Image */}
             <img
-              src="src/assets/images/profile.jpeg"
+              src="/assets/images/profile.jpeg"
               alt="Profile"
               className="h-36 w-36 rounded-full border-4 border-slate-300 object-cover shadow-lg"
             />
@@ -266,7 +266,7 @@ const Home = () => {
           {/* Ornamental flourish / rune mark */}
           <div className="flex justify-center mb-2">
             <img
-              src="src/assets/images/flourish.svg"
+              src="/assets/images/flourish.svg"
               alt="Ornamental flourish"
               className="h-6 flourish-mark"
             />

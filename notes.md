@@ -19,7 +19,7 @@ Update the homepage to use a JSON-based English ↔ Elvish mapping instead of a 
     }
     ```
   - Use the `"elvish"` value for initial rendering.
-  - Font: Tengwar (assume `src/assets/fonts/tengwarfeanorregular.ttf`).
+  - Font: Tengwar (assume `/assets/fonts/tengwarfeanorregular.ttf`).
 - Button: `"Click here to translate"` appears below the blurb.
 
 ### On Translate Button Click
@@ -48,10 +48,10 @@ Update the homepage to use a JSON-based English ↔ Elvish mapping instead of a 
     }
     ```
 - **Themes**:
-  - `theme-parchment`: parchment background, Elvish font, use the parchment background available at `src/assets/images/parchment-bg.jpg`.
+  - `theme-parchment`: parchment background, Elvish font, use the parchment background available at `/assets/images/parchment-bg.jpg`.
   - `theme-dark`: dark gothic background, serif font.
 - **Fonts**:
-  - Assume Tengwar font file exists at `/src/assets/fonts/tengwarfeanorregular.ttf`.
+  - Assume Tengwar font file exists at `//assets/fonts/tengwarfeanorregular.ttf`.
 
 ### Deliverables
 - Updated `Home.jsx` with theme + language toggle logic.

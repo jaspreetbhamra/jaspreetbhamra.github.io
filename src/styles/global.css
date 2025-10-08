@@ -3,47 +3,45 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Tengwar Feanor';
-  src: url('../assets/fonts/tengwarfeanorregular.ttf') format('truetype');
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+	font-family: "Tengwar Feanor";
+	src: url("/assets/fonts/tengwarfeanorregular.ttf") format("truetype");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
 }
 
 /* @font-face {
   font-family: 'Tengwar';
-  src: url('/src/assets/fonts/tengwar.ttf') format('truetype');
+  src: url('//assets/fonts/tengwar.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 } */
 
-
 :root {
-  color-scheme: light dark;
+	color-scheme: light dark;
 }
 
 body {
-  @apply min-h-screen antialiased transition-colors duration-700 ease-out;
-  background-color: #020617;
-  color: #e2e8f0;
+	@apply min-h-screen antialiased transition-colors duration-700 ease-out;
+	background-color: #020617;
+	color: #e2e8f0;
 }
 
 a {
-  @apply text-sky-400 hover:text-sky-300 transition-colors;
+	@apply text-sky-400 hover:text-sky-300 transition-colors;
 }
 
 .container {
-  @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+	@apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
 }
 
 .theme-parchment {
-  color: #2c200d;
-  background-image: url('../assets/images/parchment-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+	color: #2c200d;
+	background-image: url("/assets/images/parchment-bg.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
-
 
 /* .theme-parchment {
   @apply bg-yellow-50 text-gray-900;
@@ -60,119 +58,185 @@ a {
   color: #2c200d;
 } */
 .theme-parchment-old {
-  background-color: #fdf6e3;
-  background-image:
-    /* Subtle stains */
-    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(160, 82, 45, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 40% 80%, rgba(205, 133, 63, 0.05) 0%, transparent 50%),
-    /* Faded edges */
-    radial-gradient(ellipse at center, rgba(245, 222, 179, 0.9) 0%, rgba(222, 184, 135, 0.85) 70%, rgba(184, 134, 11, 0.6) 100%),
-    /* Subtle fiber texture (striping) */
-    repeating-linear-gradient(45deg, rgba(250, 240, 210, 0.15), rgba(245, 222, 179, 0.15) 2px, transparent 2px, transparent 6px);
-  background-blend-mode: multiply, screen, overlay;
-  background-attachment: fixed;
-  background-size: cover;
-  color: #1c1917;
+	background-color: #fdf6e3;
+	/* Subtle stains */
+	background-image:
+		radial-gradient(
+			circle at 20% 30%,
+			rgba(139, 69, 19, 0.06) 0%,
+			transparent 40%
+		),
+		radial-gradient(
+			circle at 80% 60%,
+			rgba(160, 82, 45, 0.04) 0%,
+			transparent 45%
+		),
+		radial-gradient(
+			circle at 40% 80%,
+			rgba(205, 133, 63, 0.05) 0%,
+			transparent 50%
+		), /* Faded edges */
+		radial-gradient(
+			ellipse at center,
+			rgba(245, 222, 179, 0.9) 0%,
+			rgba(222, 184, 135, 0.85) 70%,
+			rgba(184, 134, 11, 0.6) 100%
+		), /* Subtle fiber texture (striping) */
+		repeating-linear-gradient(
+			45deg,
+			rgba(250, 240, 210, 0.15),
+			rgba(245, 222, 179, 0.15) 2px,
+			transparent 2px,
+			transparent 6px
+		);
+	background-blend-mode: multiply, screen, overlay;
+	background-attachment: fixed;
+	background-size: cover;
+	color: #1c1917;
 }
 .theme-parchment {
-  background-color: #ede3c8; /* darker parchment base */
-  background-image:
-    /* Subtle uneven stains */
-    radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(160, 82, 45, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 40% 80%, rgba(205, 133, 63, 0.06) 0%, transparent 50%),
-    /* Burnt vignette edges */
-    radial-gradient(ellipse at top, rgba(0, 0, 0, 0.15), transparent 70%),
-    radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.15), transparent 70%),
-    radial-gradient(ellipse at left, rgba(0, 0, 0, 0.12), transparent 70%),
-    radial-gradient(ellipse at right, rgba(0, 0, 0, 0.12), transparent 70%),
-    /* Warm aged gradient */
-    linear-gradient(135deg, #eaddb2 0%, #e0d3a6 100%);
-  background-blend-mode: multiply, multiply, multiply,
-    darken, darken, darken, darken,
-    normal;
-  background-attachment: fixed;
-  background-size: cover;
-  color: #1c1917;
-  position: relative;
-  overflow: hidden;
+	background-color: #ede3c8; /* darker parchment base */
+	/* Subtle uneven stains */
+	background-image:
+		radial-gradient(
+			circle at 20% 30%,
+			rgba(139, 69, 19, 0.06) 0%,
+			transparent 40%
+		),
+		radial-gradient(
+			circle at 80% 70%,
+			rgba(160, 82, 45, 0.05) 0%,
+			transparent 45%
+		),
+		radial-gradient(
+			circle at 40% 80%,
+			rgba(205, 133, 63, 0.06) 0%,
+			transparent 50%
+		), /* Burnt vignette edges */
+		radial-gradient(ellipse at top, rgba(0, 0, 0, 0.15), transparent 70%),
+		radial-gradient(ellipse at bottom, rgba(0, 0, 0, 0.15), transparent 70%),
+		radial-gradient(ellipse at left, rgba(0, 0, 0, 0.12), transparent 70%),
+		radial-gradient(ellipse at right, rgba(0, 0, 0, 0.12), transparent 70%),
+		/* Warm aged gradient */
+		linear-gradient(135deg, #eaddb2 0%, #e0d3a6 100%);
+	background-blend-mode:
+		multiply, multiply, multiply, darken, darken, darken, darken, normal;
+	background-attachment: fixed;
+	background-size: cover;
+	color: #1c1917;
+	position: relative;
+	overflow: hidden;
 }
 
 /* Paper fibers overlay */
 .theme-parchment::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(
-      91deg,
-      rgba(255, 255, 255, 0.12) 0px,
-      rgba(255, 255, 255, 0.12) 2px,
-      transparent 2px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      -1deg,
-      rgba(255, 255, 255, 0.1) 0px,
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 2px,
-      transparent 8px
-    );
-  mix-blend-mode: overlay;
-  opacity: 0.25; /* stronger so it shows up */
-  pointer-events: none;
-  z-index: 0;
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		repeating-linear-gradient(
+			91deg,
+			rgba(255, 255, 255, 0.12) 0px,
+			rgba(255, 255, 255, 0.12) 2px,
+			transparent 2px,
+			transparent 6px
+		),
+		repeating-linear-gradient(
+			-1deg,
+			rgba(255, 255, 255, 0.1) 0px,
+			rgba(255, 255, 255, 0.1) 2px,
+			transparent 2px,
+			transparent 8px
+		);
+	mix-blend-mode: overlay;
+	opacity: 0.25; /* stronger so it shows up */
+	pointer-events: none;
+	z-index: 0;
 }
 
 /* Grainy noise overlay */
 .theme-parchment::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8+/fvfwAIDAN5f5XhGQAAAABJRU5ErkJggg==");
-  opacity: 0.15;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 0;
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P8+/fvfwAIDAN5f5XhGQAAAABJRU5ErkJggg==");
+	opacity: 0.15;
+	mix-blend-mode: multiply;
+	pointer-events: none;
+	z-index: 0;
 }
 
-
-
 .theme-parchment-fibers-1 {
-  background-image:
-    repeating-linear-gradient(89deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 2px, transparent 2px, transparent 7px),
-    repeating-linear-gradient(1deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 9px);
+	background-image:
+		repeating-linear-gradient(
+			89deg,
+			rgba(255, 255, 255, 0.07) 0px,
+			rgba(255, 255, 255, 0.07) 2px,
+			transparent 2px,
+			transparent 7px
+		),
+		repeating-linear-gradient(
+			1deg,
+			rgba(255, 255, 255, 0.06) 0px,
+			rgba(255, 255, 255, 0.06) 2px,
+			transparent 2px,
+			transparent 9px
+		);
 }
 
 .theme-parchment-fibers-2 {
-  background-image:
-    repeating-linear-gradient(87deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 2px, transparent 2px, transparent 6px),
-    repeating-linear-gradient(3deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px);
+	background-image:
+		repeating-linear-gradient(
+			87deg,
+			rgba(255, 255, 255, 0.07) 0px,
+			rgba(255, 255, 255, 0.07) 2px,
+			transparent 2px,
+			transparent 6px
+		),
+		repeating-linear-gradient(
+			3deg,
+			rgba(255, 255, 255, 0.06) 0px,
+			rgba(255, 255, 255, 0.06) 2px,
+			transparent 2px,
+			transparent 8px
+		);
 }
 
 .theme-parchment-fibers-3 {
-  background-image:
-    repeating-linear-gradient(92deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 2px, transparent 2px, transparent 6px),
-    repeating-linear-gradient(-2deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 8px);
+	background-image:
+		repeating-linear-gradient(
+			92deg,
+			rgba(255, 255, 255, 0.07) 0px,
+			rgba(255, 255, 255, 0.07) 2px,
+			transparent 2px,
+			transparent 6px
+		),
+		repeating-linear-gradient(
+			-2deg,
+			rgba(255, 255, 255, 0.06) 0px,
+			rgba(255, 255, 255, 0.06) 2px,
+			transparent 2px,
+			transparent 8px
+		);
 }
 
 /* Engraving effect for "Beyond the Binary" */
 .theme-parchment .engraving {
-  color: #5c5040; /* lighter desaturated sepia */
-  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2), -1px -1px 0 rgba(0, 0, 0, 0.1);
-  opacity: 0.8;
+	color: #5c5040; /* lighter desaturated sepia */
+	text-shadow:
+		1px 1px 0 rgba(255, 255, 255, 0.2),
+		-1px -1px 0 rgba(0, 0, 0, 0.1);
+	opacity: 0.8;
 }
 
 .theme-dark .engraving {
-  color: #94a3b8; /* cool gray-blue etching */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  opacity: 0.7;
+	color: #94a3b8; /* cool gray-blue etching */
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	opacity: 0.7;
 }
 
-
 .bg-parchment-burnt {
-  background-color: #e6dbc0; /* slightly darker parchment */
+	background-color: #e6dbc0; /* slightly darker parchment */
 }
 
 /* Apply sepia ink to everything in parchment mode */
@@ -190,44 +254,52 @@ a {
 .theme-parchment div,
 .theme-parchment aside,
 .theme-parchment footer {
-  color: #3b2f2f; /* deep sepia brown */
+	color: #3b2f2f; /* deep sepia brown */
 }
 
 /* Hover states in parchment mode */
 .theme-parchment a:hover {
-  color: #8b5e3c; /* warm ink glow */
+	color: #8b5e3c; /* warm ink glow */
 }
-
-
 
 /* .theme-dark {
   color: #e2e8f0;
   background: radial-gradient(circle at top, rgba(15, 23, 42, 0.85), rgba(2, 6, 23, 0.95));
 } */
 .theme-dark {
-  background-color: #0a0f1f;
-  background-image:
-    /* Nebula hues */
-    radial-gradient(circle at 30% 40%, rgba(147, 197, 253, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(167, 139, 250, 0.2) 0%, transparent 55%),
-    radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-    /* Stars sprinkled */
-    radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    /* Deep base gradient */
-    linear-gradient(180deg, #0a0f1f 0%, #1e293b 100%);
-  background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%,
-    200px 200px,
-    150px 150px,
-    cover;
-  background-blend-mode: screen, screen, screen, normal, normal, normal;
-  background-attachment: fixed;
-  color: #f8fafc;
+	background-color: #0a0f1f;
+	/* Nebula hues */
+	background-image:
+		radial-gradient(
+			circle at 30% 40%,
+			rgba(147, 197, 253, 0.25) 0%,
+			transparent 50%
+		),
+		radial-gradient(
+			circle at 70% 60%,
+			rgba(167, 139, 250, 0.2) 0%,
+			transparent 55%
+		),
+		radial-gradient(
+			circle at 50% 80%,
+			rgba(236, 72, 153, 0.15) 0%,
+			transparent 50%
+		), /* Stars sprinkled */
+		radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+		radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+		/* Deep base gradient */
+		linear-gradient(180deg, #0a0f1f 0%, #1e293b 100%);
+	background-size:
+		100% 100%,
+		100% 100%,
+		100% 100%,
+		200px 200px,
+		150px 150px,
+		cover;
+	background-blend-mode: screen, screen, screen, normal, normal, normal;
+	background-attachment: fixed;
+	color: #f8fafc;
 }
-
 
 /* Twinkling stars */
 /* @keyframes twinkle {
@@ -250,135 +322,145 @@ a {
   opacity: 0.7;
 } */
 
-
 .theme-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  animation: shimmer 20s linear infinite;
-  pointer-events: none;
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.08) 1px,
+		transparent 1px
+	);
+	background-size: 40px 40px;
+	animation: shimmer 20s linear infinite;
+	pointer-events: none;
 }
 
 @keyframes shimmer {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(40px, 40px); }
+	from {
+		transform: translate(0, 0);
+	}
+	to {
+		transform: translate(40px, 40px);
+	}
 }
 
-
 .sidebar-noise {
-  background-image:
-    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0),
-    radial-gradient(circle at 2px 2px, rgba(0,0,0,0.04) 1px, transparent 0);
-  background-size: 4px 4px;
+	background-image:
+		radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.06) 1px, transparent 0),
+		radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0.04) 1px, transparent 0);
+	background-size: 4px 4px;
 }
 
 .sidebar-shadow {
-  background: radial-gradient(ellipse at top left, rgba(139,69,19,0.15), transparent 70%),
-              radial-gradient(ellipse at bottom right, rgba(160,82,45,0.1), transparent 60%);
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.25),
-              inset 0 0 60px rgba(139,69,19,0.15);
+	background:
+		radial-gradient(
+			ellipse at top left,
+			rgba(139, 69, 19, 0.15),
+			transparent 70%
+		),
+		radial-gradient(
+			ellipse at bottom right,
+			rgba(160, 82, 45, 0.1),
+			transparent 60%
+		);
+	box-shadow:
+		inset 0 0 30px rgba(0, 0, 0, 0.25),
+		inset 0 0 60px rgba(139, 69, 19, 0.15);
 }
 
-
-
-
 .theme-dark .blurb-text {
-  /* font-family: 'Playfair Display', 'Georgia', serif; */
-  @apply font-display;
+	/* font-family: 'Playfair Display', 'Georgia', serif; */
+	@apply font-display;
 }
 
 .font-elvish-display {
-  font-family: 'Tengwar Feanor', 'Segoe Script', 'Snell Roundhand', cursive;
-  /* @apply font-elvish; */
+	font-family: "Tengwar Feanor", "Segoe Script", "Snell Roundhand", cursive;
+	/* @apply font-elvish; */
 }
 
 .font-english-display {
-  /* font-family: 'Playfair Display', 'Georgia', serif; */
-  @apply font-display;
+	/* font-family: 'Playfair Display', 'Georgia', serif; */
+	@apply font-display;
 }
 .font-english-sans {
-  @apply font-sans;
+	@apply font-sans;
 }
-
-
 
 /* Fantasy manuscript page */
 .fantasy-page {
-  position: relative;
-  padding: 2rem;
-  /* clip-path: polygon(
+	position: relative;
+	padding: 2rem;
+	/* clip-path: polygon(
     0% 0%, 98% 0%, 100% 3%, 100% 97%, 98% 100%,
     2% 100%, 0% 97%, 0% 3%
   ); deckled/torn edges */
-  box-shadow: inset -8px 0 15px rgba(0, 0, 0, 0.08);
-  z-index: 1;
-  overflow: hidden;
+	box-shadow: inset -8px 0 15px rgba(0, 0, 0, 0.08);
+	z-index: 1;
+	overflow: hidden;
 }
 
 /* Burnt edges + scorch marks */
 .fantasy-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 2px;
-  background:
-    /* Burnt vignette edges */
-    radial-gradient(ellipse at top, transparent 70%, rgba(0,0,0,0.25) 100%),
-    radial-gradient(ellipse at bottom, transparent 70%, rgba(0,0,0,0.25) 100%),
-    radial-gradient(ellipse at left, transparent 70%, rgba(0,0,0,0.2) 100%),
-    radial-gradient(ellipse at right, transparent 70%, rgba(0,0,0,0.2) 100%),
-
-    /* Irregular scorch marks */
-    radial-gradient(circle at 15% 20%, rgba(0,0,0,0.12) 0%, transparent 40%),
-    radial-gradient(circle at 80% 65%, rgba(0,0,0,0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 85%, rgba(0,0,0,0.1) 0%, transparent 45%);
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 0;
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: 2px;
+	/* Burnt vignette edges */
+	background:
+		radial-gradient(ellipse at top, transparent 70%, rgba(0, 0, 0, 0.25) 100%),
+		radial-gradient(
+			ellipse at bottom,
+			transparent 70%,
+			rgba(0, 0, 0, 0.25) 100%
+		),
+		radial-gradient(ellipse at left, transparent 70%, rgba(0, 0, 0, 0.2) 100%),
+		radial-gradient(ellipse at right, transparent 70%, rgba(0, 0, 0, 0.2) 100%),
+		/* Irregular scorch marks */
+		radial-gradient(circle at 15% 20%, rgba(0, 0, 0, 0.12) 0%, transparent 40%),
+		radial-gradient(circle at 80% 65%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
+		radial-gradient(circle at 40% 85%, rgba(0, 0, 0, 0.1) 0%, transparent 45%);
+	mix-blend-mode: multiply;
+	pointer-events: none;
+	z-index: 0;
 }
 
 /* Wrinkled parchment look */
 .fantasy-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(0,0,0,0.03) 0px,
-      rgba(0,0,0,0.03) 1px,
-      transparent 2px,
-      transparent 6px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      rgba(0,0,0,0.025) 0px,
-      rgba(0,0,0,0.025) 1px,
-      transparent 2px,
-      transparent 7px
-    );
-  mix-blend-mode: multiply;
-  opacity: 0.15;
-  pointer-events: none;
-  z-index: 0;
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image:
+		repeating-linear-gradient(
+			45deg,
+			rgba(0, 0, 0, 0.03) 0px,
+			rgba(0, 0, 0, 0.03) 1px,
+			transparent 2px,
+			transparent 6px
+		),
+		repeating-linear-gradient(
+			-45deg,
+			rgba(0, 0, 0, 0.025) 0px,
+			rgba(0, 0, 0, 0.025) 1px,
+			transparent 2px,
+			transparent 7px
+		);
+	mix-blend-mode: multiply;
+	opacity: 0.15;
+	pointer-events: none;
+	z-index: 0;
 }
 
 /* Vertical fold line near spine */
 .fantasy-page.fold-left::before {
-  background:
-    linear-gradient(to right, rgba(0,0,0,0.12) 0%, transparent 30%),
-    inherit; /* keeps burns & marks */
+	background:
+		linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 30%), inherit; /* keeps burns & marks */
 }
 
 .fantasy-page.fold-right::before {
-  background:
-    linear-gradient(to left, rgba(0,0,0,0.12) 0%, transparent 30%),
-    inherit;
+	background:
+		linear-gradient(to left, rgba(0, 0, 0, 0.12) 0%, transparent 30%), inherit;
 }
-
 
 /* Ink embossing: makes text feel pressed into paper */
 .fantasy-page p,
@@ -387,100 +469,108 @@ a {
 .fantasy-page h3,
 .fantasy-page span,
 .fantasy-page li {
-  text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.08);
+	text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.08);
 }
 
 @keyframes floatMotes {
-  0% { transform: translateY(0) translateX(0); opacity: 0; }
-  30% { opacity: 0.4; }
-  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+	0% {
+		transform: translateY(0) translateX(0);
+		opacity: 0;
+	}
+	30% {
+		opacity: 0.4;
+	}
+	100% {
+		transform: translateY(-100vh) translateX(30px);
+		opacity: 0;
+	}
 }
-
 
 /* Default flourish styling (parchment mode → sepia ink) */
 .theme-parchment .flourish-mark {
-  filter: brightness(0) saturate(100%) sepia(60%) hue-rotate(-10deg) saturate(250%) brightness(80%);
-  opacity: 0.5;
+	filter: brightness(0) saturate(100%) sepia(60%) hue-rotate(-10deg)
+		saturate(250%) brightness(80%);
+	opacity: 0.5;
 }
 
 /* Dark mode flourish (silvery rune with glow) */
 .theme-dark .flourish-mark {
-  filter: brightness(0) saturate(100%) invert(90%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(120%);
-  opacity: 0.85;
-  filter: drop-shadow(0 0 4px rgba(180, 220, 255, 0.6)) drop-shadow(0 0 8px rgba(160, 200, 255, 0.4));
+	filter: brightness(0) saturate(100%) invert(90%) sepia(0%) saturate(0%)
+		hue-rotate(180deg) brightness(120%);
+	opacity: 0.85;
+	filter: drop-shadow(0 0 4px rgba(180, 220, 255, 0.6))
+		drop-shadow(0 0 8px rgba(160, 200, 255, 0.4));
 }
-
-
 
 /* Base button styling */
 .translate-btn {
-  @apply px-5 py-2 rounded-full font-semibold uppercase tracking-[0.25em] transition-colors;
+	@apply px-5 py-2 rounded-full font-semibold uppercase tracking-[0.25em] transition-colors;
 }
 
 /* Light mode (parchment) button */
 .theme-parchment .translate-btn {
-  background-color: rgba(60, 45, 30, 0.2); /* darkened sepia overlay */
-  color: #3b2f2f; /* sepia ink */
-  border: 1px solid rgba(60, 45, 30, 0.4);
+	background-color: rgba(60, 45, 30, 0.2); /* darkened sepia overlay */
+	color: #3b2f2f; /* sepia ink */
+	border: 1px solid rgba(60, 45, 30, 0.4);
 }
 
 .theme-parchment .translate-btn:hover {
-  background-color: rgba(60, 45, 30, 0.35);
-  border-color: rgba(60, 45, 30, 0.6);
-  color: #2a1f1f;
+	background-color: rgba(60, 45, 30, 0.35);
+	border-color: rgba(60, 45, 30, 0.6);
+	color: #2a1f1f;
 }
 
 /* Dark mode (nebula) button */
 .theme-dark .translate-btn {
-  background-color: rgba(20, 30, 60, 0.6); /* darkened navy */
-  color: #e5e7eb; /* light text */
-  border: 1px solid rgba(120, 160, 220, 0.4);
+	background-color: rgba(20, 30, 60, 0.6); /* darkened navy */
+	color: #e5e7eb; /* light text */
+	border: 1px solid rgba(120, 160, 220, 0.4);
 }
 
 .theme-dark .translate-btn:hover {
-  background-color: rgba(40, 60, 100, 0.75);
-  border-color: rgba(160, 200, 255, 0.6);
-  color: #f0f6ff;
+	background-color: rgba(40, 60, 100, 0.75);
+	border-color: rgba(160, 200, 255, 0.6);
+	color: #f0f6ff;
 }
-
 
 /* Navbar buttons (same glowing hover as Translate) */
 .nav-btn {
-  @apply inline-flex items-center gap-2 rounded-full border border-slate-400/60 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors;
-  background-color: rgba(40, 40, 40, 0.4);
-  color: #e5e7eb;
+	@apply inline-flex items-center gap-2 rounded-full border border-slate-400/60 px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em] transition-colors;
+	background-color: rgba(40, 40, 40, 0.4);
+	color: #e5e7eb;
 }
 
 .nav-btn:hover {
-  border-color: #38bdf8; /* sky-400 */
-  color: #38bdf8;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6), 0 0 15px rgba(56, 189, 248, 0.4);
+	border-color: #38bdf8; /* sky-400 */
+	color: #38bdf8;
+	box-shadow:
+		0 0 8px rgba(56, 189, 248, 0.6),
+		0 0 15px rgba(56, 189, 248, 0.4);
 }
 
 /* nav.sticky {
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 } */
 
-
 /* Fluid font based on display size */
 @layer utilities {
-  .text-fluid-sm {
-    font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
-  }
+	.text-fluid-sm {
+		font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1rem);
+	}
 
-  .text-fluid-base {
-    font-size: clamp(1rem, 0.95rem + 0.4vw, 1.2rem);
-  }
+	.text-fluid-base {
+		font-size: clamp(1rem, 0.95rem + 0.4vw, 1.2rem);
+	}
 
-  .text-fluid-lg {
-    font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
-  }
+	.text-fluid-lg {
+		font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+	}
 
-  .text-fluid-xl {
-    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.5rem);
-  }
+	.text-fluid-xl {
+		font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.5rem);
+	}
 
-  .text-fluid-2xl {
-    font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem);
-  }
+	.text-fluid-2xl {
+		font-size: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+	}
 }

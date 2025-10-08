@@ -33,7 +33,6 @@
 
 // export default TranslateButton
 
-
 // import { motion } from 'framer-motion'
 
 // const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
@@ -59,7 +58,6 @@
 // }
 
 // export default TranslateButton
-
 
 // import { motion } from 'framer-motion'
 
@@ -87,30 +85,28 @@
 
 // export default TranslateButton
 
-
-
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 const TranslateButton = ({ isTranslated, onToggle, disabled, className }) => {
-  return (
-    <motion.button
-      onClick={onToggle}
-      disabled={disabled}
-      whileHover={{
-        scale: 1.1,
-        boxShadow: isTranslated
-          ? '0 0 20px rgba(135, 206, 250, 0.8), 0 0 40px rgba(135, 206, 250, 0.6)'
-          : '0 0 15px rgba(222, 184, 135, 0.7), 0 0 30px rgba(205, 133, 63, 0.5)',
-      }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ duration: 0.4, ease: 'easeInOut' }}
-      className={`rounded-full px-8 py-3 text-sm font-semibold tracking-wider shadow-md ${className}`}
-    >
-      {isTranslated ? '🔮 Return to the Ancient Tongue' : '✨ Reveal the Hidden Words'}
-    </motion.button>
-  )
-}
+	return (
+		<motion.button
+			onClick={onToggle}
+			disabled={disabled}
+			whileHover={{
+				scale: 1.1,
+				boxShadow: isTranslated
+					? "0 0 20px rgba(135, 206, 250, 0.8), 0 0 40px rgba(135, 206, 250, 0.6)"
+					: "0 0 15px rgba(222, 184, 135, 0.7), 0 0 30px rgba(205, 133, 63, 0.5)",
+			}}
+			whileTap={{ scale: 0.95 }}
+			transition={{ duration: 0.4, ease: "easeInOut" }}
+			className={`rounded-full px-8 py-3 text-sm font-semibold tracking-wider shadow-md ${className}`}
+		>
+			{isTranslated
+				? "🔮 Return to the Ancient Tongue"
+				: "✨ Reveal the Hidden Words"}
+		</motion.button>
+	);
+};
 
-export default TranslateButton
-
-
+export default TranslateButton;
