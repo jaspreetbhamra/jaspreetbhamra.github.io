@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom"
 
 const navLinks = [
-  { label: "Resume", href: "/resume.pdf", external: true },
+  { label: 'Resume', href: 'https://drive.google.com/file/d/1dutCWoKjZ_n3XdYozZNvu5iDTLdihdAT/view?usp=drive_link', external: true },
   { label: "Projects", href: "/projects", external: false },
   { label: "Experience", href: "/experience", external: false }, // placeholder
 ]

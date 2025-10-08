@@ -1,11 +1,17 @@
-import { FaGithub, FaLinkedin, FaTwitter, FaGraduationCap } from "react-icons/fa6"
+import { FaGithub, FaLinkedin, FaTwitter, FaGraduationCap, FaGoogleScholar } from "react-icons/fa6"
 import { HiOutlineMail, HiPhone } from "react-icons/hi"
 
+// const socials = [
+//   { label: "GitHub", href: "https://github.com/yourusername", icon: FaGithub },
+//   { label: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: FaLinkedin },
+//   { label: "Twitter", href: "https://twitter.com/yourhandle", icon: FaTwitter },
+//   { label: "Scholar", href: "https://scholar.google.com/citations?user=XXXXXX", icon: FaGraduationCap },
+// ]
 const socials = [
-  { label: "GitHub", href: "https://github.com/yourusername", icon: FaGithub },
-  { label: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: FaLinkedin },
-  { label: "Twitter", href: "https://twitter.com/yourhandle", icon: FaTwitter },
-  { label: "Scholar", href: "https://scholar.google.com/citations?user=XXXXXX", icon: FaGraduationCap },
+  { label: 'GitHub', href: 'https://github.com/jaspreetbhamra', icon: FaGithub },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jaspreet-kaur-bhamra/', icon: FaLinkedin },
+  // { label: 'Twitter', href: 'https://twitter.com/yourhandle', icon: FaTwitter },
+  { label: 'Scholar', href: 'https://scholar.google.com/citations?user=xwU4PZsAAAAJ&hl=en', icon: FaGoogleScholar },
 ]
 
 const Sidebar = ({ textColorClass, headingFontClass }) => {
@@ -38,18 +44,18 @@ const Sidebar = ({ textColorClass, headingFontClass }) => {
       {/* Contact Info */}
       <div className="flex w-full flex-col items-center gap-2 border-t border-slate-400/30 pt-4 text-sm">
         <a
-          href="mailto:dummy.email@example.com"
+          href="mailto:jbhamra24@gmail.com"
           className={`flex items-center gap-2 ${textColorClass} hover:text-sky-500 transition-colors`}
         >
           <HiOutlineMail className="h-4 w-4" />
-          dummy.email@example.com
+          jbhamra24@gmail.com
         </a>
         <a
-          href="tel:+1234567890"
+          href="tel:+18582411769"
           className={`flex items-center gap-2 ${textColorClass} hover:text-sky-500 transition-colors`}
         >
           <HiPhone className="h-4 w-4" />
-          +1 (234) 567-890
+          +1 (858) 241-1769
         </a>
       </div>
 

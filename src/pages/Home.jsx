@@ -12,19 +12,6 @@ import { getBlurb } from '../utils/api.js'
 import Sidebar from "../components/Sidebar"
 
 
-const navLinks = [
-  { label: 'Resume', href: 'https://drive.google.com/file/d/1dutCWoKjZ_n3XdYozZNvu5iDTLdihdAT/view?usp=drive_link', external: true },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Experience', href: '#experience' },
-]
-
-const socials = [
-  { label: 'GitHub', href: 'https://github.com/yourusername', icon: FaGithub },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', icon: FaLinkedin },
-  { label: 'Twitter', href: 'https://twitter.com/yourhandle', icon: FaTwitter },
-  { label: 'Scholar', href: 'https://scholar.google.com/citations?user=XXXXXX', icon: FaGoogleScholar },
-]
-
 const backdropVariants = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
