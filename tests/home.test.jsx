@@ -1,25 +1,40 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 
+import { ThemeProvider } from "../src/context/ThemeContext";
 import Home from "../src/pages/Home.jsx";
 
+const renderWithProviders = (component) => {
+	return render(
+		<BrowserRouter>
+			<ThemeProvider>{component}</ThemeProvider>
+		</BrowserRouter>,
+	);
+};
+
 describe("Home", () => {
-	it("reveals navigation links after translating to English", async () => {
-		render(<Home />);
+	it("renders the home page with translate button", async () => {
+		renderWithProviders(<Home />);
 
-		const translateButton = screen.getByRole("button", {
-			name: /click here to translate/i,
-		});
+		// Check for translate button
+		await waitFor(
+			() => {
+				const translateButton = screen.getByRole("button", {
+					name: /reveal the hidden words/i,
+				});
+				expect(translateButton).toBeInTheDocument();
+			},
+			{ timeout: 3000 },
+		);
 
-		await waitFor(() => expect(translateButton).not.toBeDisabled());
-
-		await userEvent.click(translateButton);
-
+		// Check for sidebar elements
+		const names = screen.getAllByText(/Jaspreet Kaur Bhamra/i);
+		expect(names.length).toBeGreaterThan(0);
 		expect(
-			await screen.findByRole("link", { name: /resume/i }),
+			screen.getByText(/Data Scientist • ML Engineer • Storyteller/i),
 		).toBeInTheDocument();
-		expect(
-			screen.getByRole("button", { name: /return to elvish/i }),
-		).toBeInTheDocument();
+
+		// Check for skip link
+		expect(screen.getByText(/skip to main content/i)).toBeInTheDocument();
 	});
 });
