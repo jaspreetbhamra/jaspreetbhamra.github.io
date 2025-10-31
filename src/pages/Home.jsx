@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import SkipToContent from "../components/SkipToContent";
@@ -30,7 +30,7 @@ const randomFiber =
 
 const Home = () => {
 	const location = useLocation();
-	const params = new URLSearchParams(location.search);
+	const navigate = useNavigate();
 	const {
 		language,
 		setLanguage,
@@ -38,17 +38,31 @@ const Home = () => {
 		themeClass,
 		textColorClass,
 		headingFontClass,
-		toggleLanguage,
 	} = useTheme();
 
 	const [blurbs, setBlurbs] = useState({ elvish: "", english: "" });
 	const [isLoading, setIsLoading] = useState(true);
 
-	// Initialize language from URL param on mount
+	// Sync language with URL param
 	useEffect(() => {
-		const defaultLang = params.get("lang") || "elvish";
-		setLanguage(defaultLang);
-	}, [params, setLanguage]);
+		const params = new URLSearchParams(location.search);
+		const urlLang = params.get("lang");
+
+		if (urlLang && urlLang !== language) {
+			// URL has lang param, sync context to it
+			setLanguage(urlLang);
+		} else if (!urlLang && language !== "elvish") {
+			// No URL param but context is not elvish, update URL
+			navigate(`/?lang=${language}`, { replace: true });
+		}
+	}, [location.search, language, setLanguage, navigate]);
+
+	// Toggle language and update URL
+	const handleToggle = () => {
+		const newLang = language === "elvish" ? "english" : "elvish";
+		setLanguage(newLang);
+		navigate(`/?lang=${newLang}`, { replace: true });
+	};
 
 	useEffect(() => {
 		let cancelled = false;
@@ -163,7 +177,7 @@ const Home = () => {
 								<div className="relative z-10">
 									<TranslateButton
 										isTranslated={isTranslated}
-										onToggle={toggleLanguage}
+										onToggle={handleToggle}
 										disabled={isLoading}
 										className={`translate-btn ${buttonFontClass} ${textColorClass}`}
 									/>
