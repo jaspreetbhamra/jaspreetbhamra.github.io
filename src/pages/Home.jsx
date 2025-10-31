@@ -1,9 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import TranslateButton from "../components/TranslateButton.jsx";
+import { useTheme } from "../context/ThemeContext";
 import { getBlurb } from "../utils/api.js";
 
 const backdropVariants = {
@@ -29,13 +30,24 @@ const randomFiber =
 const Home = () => {
 	const location = useLocation();
 	const params = new URLSearchParams(location.search);
+	const {
+		language,
+		setLanguage,
+		isTranslated,
+		themeClass,
+		textColorClass,
+		headingFontClass,
+		toggleLanguage,
+	} = useTheme();
 
-	const defaultLang = params.get("lang") || "elvish";
-	const [language, setLanguage] = useState(defaultLang);
-
-	// const [language, setLanguage] = useState('elvish')
 	const [blurbs, setBlurbs] = useState({ elvish: "", english: "" });
 	const [isLoading, setIsLoading] = useState(true);
+
+	// Initialize language from URL param on mount
+	useEffect(() => {
+		const defaultLang = params.get("lang") || "elvish";
+		setLanguage(defaultLang);
+	}, [params, setLanguage]);
 
 	useEffect(() => {
 		let cancelled = false;
@@ -63,23 +75,10 @@ const Home = () => {
 		};
 	}, []);
 
-	const isTranslated = language === "english";
-	const themeClass = useMemo(
-		() => (isTranslated ? "theme-dark" : "theme-parchment"),
-		[isTranslated],
-	);
-
-	const headingFontClass = "font-english-display";
 	const buttonFontClass = headingFontClass;
 	const blurbFontClass = isTranslated
-		? { headingFontClass }
+		? headingFontClass
 		: "font-elvish-display";
-
-	const textColorClass = isTranslated ? "text-slate-100" : "text-slate-800";
-
-	const handleToggle = () => {
-		setLanguage((prev) => (prev === "elvish" ? "english" : "elvish"));
-	};
 
 	const currentBlurb = blurbs[language];
 
@@ -161,7 +160,7 @@ const Home = () => {
 								<div className="relative z-10">
 									<TranslateButton
 										isTranslated={isTranslated}
-										onToggle={handleToggle}
+										onToggle={toggleLanguage}
 										disabled={isLoading}
 										className={`translate-btn ${buttonFontClass} ${textColorClass}`}
 									/>
