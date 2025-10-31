@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Card from "../components/Card";
 import PageLayout from "../components/PageLayout";
 
 const blogPosts = [
@@ -40,33 +40,14 @@ const Blog = () => {
 
 				<div className="grid gap-6 md:grid-cols-2">
 					{blogPosts.map((post) => (
-						<Link
+						<Card
 							key={post.link}
 							to={post.link}
-							className="block rounded-2xl border border-slate-600 bg-slate-800/40 p-6 hover:border-sky-400 hover:shadow-lg transition-all"
-						>
-							<div className="mb-4">
-								<h2 className="text-xl font-semibold text-slate-100 mb-2">
-									{post.title}
-								</h2>
-								<time className="text-slate-500 text-xs">{post.date}</time>
-							</div>
-
-							<p className="text-slate-300 text-sm mb-4">{post.summary}</p>
-
-							{post.tags && post.tags.length > 0 && (
-								<div className="flex gap-2 flex-wrap">
-									{post.tags.map((tag) => (
-										<span
-											key={tag}
-											className="px-2 py-1 rounded bg-slate-700/50 text-sky-400 text-xs"
-										>
-											#{tag}
-										</span>
-									))}
-								</div>
-							)}
-						</Link>
+							title={post.title}
+							description={post.summary}
+							date={post.date}
+							tags={post.tags}
+						/>
 					))}
 				</div>
 			</section>
