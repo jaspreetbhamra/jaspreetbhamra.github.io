@@ -1,7 +1,11 @@
+import { useTheme } from "../context/ThemeContext";
+
 const Footer = () => {
+	const { textColorClass } = useTheme();
+
 	return (
 		<footer
-			className={`fantasy-page relative w-full py-6 mt-auto text-xs text-center border-t border-slate-400/30 text-slate-100`}
+			className={`fantasy-page relative w-full py-6 mt-auto text-xs text-center border-t border-slate-400/30 ${textColorClass}`}
 		>
 			{/* Ornamental flourish / rune mark */}
 			<div className="flex justify-center mb-2">

@@ -132,60 +132,61 @@ const Home = () => {
 						{/* Main Content */}
 						<main
 							id="main-content"
-							className={`fantasy-page flex flex-1 flex-col justify-center gap-10 p-10`}
+							className={`fantasy-page flex flex-1 flex-col min-h-screen gap-10 p-10`}
 						>
-							<section className="rounded-3xl border border-transparent bg-transparent shadow-none">
-								{/* <div className="relative min-h-[30vh] max-h-[50vh] overflow-y-auto"> */}
-								<div className="relative min-h-[20vh] max-h-[80vh]">
-									<AnimatePresence mode="popLayout">
-										<motion.div
-											key={language}
-											initial={{
-												opacity: 0,
-												filter: "blur(8px)",
-												letterSpacing: "0.25em",
-											}}
-											animate={{
-												opacity: 1,
-												filter: "blur(0px)",
-												letterSpacing: "0.03em",
-											}}
-											exit={{
-												opacity: 0,
-												filter: "blur(8px)",
-												letterSpacing: "0.35em",
-											}}
-											transition={{ duration: 1.2, ease: "easeInOut" }}
-											className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${blurbFontClass} ${textColorClass}`}
-											// style={{
-											//   fontFamily: isTranslated
-											//     ? 'Playfair Display, serif'
-											//     : 'Tengwar Feanor, serif',
-											// }}
-											// style={{
-											//   fontFamily: {blurbFontClass}
-											// }}
-										>
-											{isLoading ? "Summoning the tale..." : currentBlurb}
-										</motion.div>
-									</AnimatePresence>
-								</div>
-							</section>
+							<div className="flex-1 flex flex-col justify-center gap-10">
+								<section className="rounded-3xl border border-transparent bg-transparent shadow-none">
+									{/* <div className="relative min-h-[30vh] max-h-[50vh] overflow-y-auto"> */}
+									<div className="relative min-h-[20vh] max-h-[80vh]">
+										<AnimatePresence mode="popLayout">
+											<motion.div
+												key={language}
+												initial={{
+													opacity: 0,
+													filter: "blur(8px)",
+													letterSpacing: "0.25em",
+												}}
+												animate={{
+													opacity: 1,
+													filter: "blur(0px)",
+													letterSpacing: "0.03em",
+												}}
+												exit={{
+													opacity: 0,
+													filter: "blur(8px)",
+													letterSpacing: "0.35em",
+												}}
+												transition={{ duration: 1.2, ease: "easeInOut" }}
+												className={`blurb-text whitespace-pre-line text-lg leading-relaxed ${blurbFontClass} ${textColorClass}`}
+												// style={{
+												//   fontFamily: isTranslated
+												//     ? 'Playfair Display, serif'
+												//     : 'Tengwar Feanor, serif',
+												// }}
+												// style={{
+												//   fontFamily: {blurbFontClass}
+												// }}
+											>
+												{isLoading ? "Summoning the tale..." : currentBlurb}
+											</motion.div>
+										</AnimatePresence>
+									</div>
+								</section>
 
-							{/* Translate Button */}
-							<div className="flex justify-start">
-								<div className="relative z-10">
-									<TranslateButton
-										isTranslated={isTranslated}
-										onToggle={handleToggle}
-										disabled={isLoading}
-										className={`translate-btn ${buttonFontClass} ${textColorClass}`}
-									/>
+								{/* Translate Button */}
+								<div className="flex justify-start">
+									<div className="relative z-10">
+										<TranslateButton
+											isTranslated={isTranslated}
+											onToggle={handleToggle}
+											disabled={isLoading}
+											className={`translate-btn ${buttonFontClass} ${textColorClass}`}
+										/>
+									</div>
 								</div>
-							</div>
 
-							{/* Nav links (only after translation) */}
-							{/* <AnimatePresence>
+								{/* Nav links (only after translation) */}
+								{/* <AnimatePresence>
               {isTranslated && !isLoading && (
                 <motion.nav
                   key="nav-links"
@@ -214,26 +215,27 @@ const Home = () => {
                 </motion.nav>
               )}
             </AnimatePresence> */}
+							</div>
+
+							<footer
+								className={`fantasy-page relative w-full py-6 mt-auto text-xs text-center border-t border-slate-400/30 ${textColorClass}`}
+							>
+								{/* Ornamental flourish / rune mark */}
+								<div className="flex justify-center mb-2">
+									<img
+										src="/assets/images/flourish.svg"
+										alt="Ornamental flourish"
+										className="h-6 flourish-mark"
+									/>
+								</div>
+
+								<p>
+									&copy; {new Date().getFullYear()} Jaspreet Kaur Bhamra. Crafted
+									with care and a hint of Elvish magic.
+								</p>
+							</footer>
 						</main>
 					</div>
-
-					<footer
-						className={`fantasy-page relative w-full py-6 mt-auto text-xs text-center border-t border-slate-400/30 ${textColorClass}`}
-					>
-						{/* Ornamental flourish / rune mark */}
-						<div className="flex justify-center mb-2">
-							<img
-								src="/assets/images/flourish.svg"
-								alt="Ornamental flourish"
-								className="h-6 flourish-mark"
-							/>
-						</div>
-
-						<p>
-							&copy; {new Date().getFullYear()} Jaspreet Kaur Bhamra. Crafted
-							with care and a hint of Elvish magic.
-						</p>
-					</footer>
 				</motion.div>
 			</div>
 		</div>
