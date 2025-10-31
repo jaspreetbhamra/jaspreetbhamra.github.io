@@ -8,9 +8,13 @@ import { ThemeProvider } from "./context/ThemeContext";
 const Home = lazy(() => import("./pages/Home"));
 const Experience = lazy(() => import("./pages/Experience"));
 const Projects = lazy(() => import("./pages/Projects"));
+const Blog = lazy(() => import("./pages/Blog"));
 const Creyon = lazy(() => import("./pages/experience/Creyon"));
 const MorganStanley = lazy(() => import("./pages/experience/MorganStanley"));
 const SDSC = lazy(() => import("./pages/experience/SDSC"));
+const AIBiology = lazy(() => import("./pages/blog/AIBiology"));
+const DataToML = lazy(() => import("./pages/blog/DataToML"));
+const StorytellingData = lazy(() => import("./pages/blog/StorytellingData"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
@@ -28,6 +32,13 @@ function App() {
 							<Route
 								path="/experience/morganstanley"
 								element={<MorganStanley />}
+							/>
+							<Route path="/blog" element={<Blog />} />
+							<Route path="/blog/ai-biology" element={<AIBiology />} />
+							<Route path="/blog/data-to-ml" element={<DataToML />} />
+							<Route
+								path="/blog/storytelling-data"
+								element={<StorytellingData />}
 							/>
 							<Route path="*" element={<NotFound />} />
 						</Routes>
