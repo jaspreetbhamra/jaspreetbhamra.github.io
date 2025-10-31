@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import SkipToContent from "../components/SkipToContent";
 import TranslateButton from "../components/TranslateButton.jsx";
 import { useTheme } from "../context/ThemeContext";
 import { getBlurb } from "../utils/api.js";
@@ -87,6 +88,7 @@ const Home = () => {
 		<div
 			className={`relative min-h-screen ${themeClass} theme-overlay ${randomFiber}`}
 		>
+			<SkipToContent />
 			<div className="relative z-10">
 				<motion.div
 					className={`relative min-h-screen overflow-x-hidden transition-colors duration-700 ease-in-out ${themeClass}`}
@@ -115,6 +117,7 @@ const Home = () => {
 
 						{/* Main Content */}
 						<main
+							id="main-content"
 							className={`fantasy-page flex flex-1 flex-col justify-center gap-10 p-10`}
 						>
 							<section className="rounded-3xl border border-transparent bg-transparent shadow-none">
