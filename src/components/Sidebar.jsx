@@ -24,7 +24,7 @@ const Sidebar = ({ textColorClass, headingFontClass }) => {
 	return (
 		<aside
 			className={`fantasy-page relative flex flex-col items-center gap-6 p-8
-        lg:w-1/4 lg:sticky lg:top-0 lg:h-screen
+        lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-80 lg:overflow-y-auto
       `}
 		>
 			{/* Binding divider (book spine illusion) */}

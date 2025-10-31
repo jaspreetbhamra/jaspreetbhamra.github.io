@@ -132,7 +132,7 @@ const Home = () => {
 						{/* Main Content */}
 						<main
 							id="main-content"
-							className={`fantasy-page flex flex-1 flex-col min-h-screen gap-10 p-10`}
+							className={`fantasy-page flex flex-1 flex-col min-h-screen gap-10 p-10 lg:ml-80`}
 						>
 							<div className="flex-1 flex flex-col justify-center gap-10">
 								<section className="rounded-3xl border border-transparent bg-transparent shadow-none">

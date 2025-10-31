@@ -23,7 +23,7 @@ const PageLayout = ({ children }) => {
 				{/* Page content */}
 				<main
 					id="main-content"
-					className="flex-1 px-6 sm:px-10 flex flex-col gap-10 mt-16 sm:mt-24 min-h-screen"
+					className="flex-1 px-6 sm:px-10 flex flex-col gap-10 mt-16 sm:mt-24 min-h-screen lg:ml-80"
 				>
 					<div className="flex-1">{children}</div>
 					<Footer />
