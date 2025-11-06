@@ -41,16 +41,3 @@
 * Shared layout components.
 * Tests for routing.
 * Workflow file `.github/workflows/deploy.yml`.
-
----
-
-## Suggested Improvements to the Plan (and Why)
-
-1. **Adopt Biome for lint+format**: Single, fast tool improves DX and enforces consistency.
-2. **Introduce Design Tokens**: Central tokens enforce visual consistency without heavy design systems.
-3. **Lazy-loaded Routes**: Improves initial load performance.
-4. **A11y & Reduced Motion**: Professional polish plus broader usability.
-5. **Playwright e2e (optional)**: Catches routing regressions before deploys.
-6. **PR-based Plan Review**: Ensures you approve the direction before any sweeping changes.
-
-> All improvements are lightweight, token-efficient, and aligned with a professional SPA baseline.
