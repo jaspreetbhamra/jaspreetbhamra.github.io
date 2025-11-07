@@ -45,7 +45,7 @@ export function Card({
 					{(date || tags) && (
 						<div className="flex items-center justify-between mb-3">
 							{date && (
-								<time className="text-sm text-neutral-500 dark:text-neutral-400">
+								<time className="text-sm text-neutral-600 dark:text-neutral-300 font-medium">
 									{date}
 								</time>
 							)}
