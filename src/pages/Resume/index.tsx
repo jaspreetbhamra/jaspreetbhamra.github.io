@@ -72,7 +72,7 @@ export default function Resume() {
 				</div>
 
 				{/* Quick Summary */}
-				<div className="mt-16 grid md:grid-cols-3 gap-8">
+				{/* <div className="mt-16 grid md:grid-cols-3 gap-8">
 					<div className="group text-center p-8 bg-gradient-to-br from-accent-50 to-neutral-50 dark:from-accent-900/20 dark:to-neutral-900/50 border border-accent-200 dark:border-accent-800 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
 						<div className="text-4xl font-bold bg-gradient-to-br from-accent-600 to-accent-700 dark:from-accent-400 dark:to-accent-300 bg-clip-text text-transparent mb-3">
 							5+
@@ -97,7 +97,7 @@ export default function Resume() {
 							Technologies
 						</p>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</PageContainer>
 	);
