@@ -14,7 +14,7 @@ function LoadingFallback() {
 export default function App() {
 	return (
 		<ErrorBoundary>
-			<BrowserRouter basename="/jaspreetbhamra.github.io">
+			<BrowserRouter basename="/">
 				<Suspense fallback={<LoadingFallback />}>
 					<Routes>
 						{routes.map((route) => (

@@ -39,7 +39,7 @@
 * **Accessibility**: WCAG AA color contrast; semantic landmarks; visible focus outlines; keyboard‑navigable menu/drawer; ARIA only when necessary.
 * **Security (frontend)**: No secrets in client; sanitize any dynamic HTML; external links use `rel="noopener"`; consider a minimal CSP meta tag.
 * **DX**: TypeScript, Biome (or ESLint+Prettier) with `lint`/`format` scripts; path aliases; env via `import.meta.env.VITE_*`.
-* **Versioning**: Commit after each task with clear messages; do not push until requested by the user.
+* **Versioning**: Commit after each sub task with clear messages; do not push until requested by the user.
 
 ### Phased Execution (after approval)
 
