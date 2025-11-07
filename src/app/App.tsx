@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
+import { ThemeProvider } from "@/hooks/useTheme";
+import { AppLayout } from "./layout/AppLayout";
 import { notFoundRoute, routes } from "./routes";
 
 function LoadingFallback() {
@@ -14,16 +16,20 @@ function LoadingFallback() {
 export default function App() {
 	return (
 		<ErrorBoundary>
-			<BrowserRouter basename="/">
-				<Suspense fallback={<LoadingFallback />}>
-					<Routes>
-						{routes.map((route) => (
-							<Route key={route.path} path={route.path} element={<route.element />} />
-						))}
-						<Route path={notFoundRoute.path} element={<notFoundRoute.element />} />
-					</Routes>
-				</Suspense>
-			</BrowserRouter>
+			<ThemeProvider>
+				<BrowserRouter basename="/jaspreetbhamra.github.io">
+					<AppLayout>
+						<Suspense fallback={<LoadingFallback />}>
+							<Routes>
+								{routes.map((route) => (
+									<Route key={route.path} path={route.path} element={<route.element />} />
+								))}
+								<Route path={notFoundRoute.path} element={<notFoundRoute.element />} />
+							</Routes>
+						</Suspense>
+					</AppLayout>
+				</BrowserRouter>
+			</ThemeProvider>
 		</ErrorBoundary>
 	);
 }
