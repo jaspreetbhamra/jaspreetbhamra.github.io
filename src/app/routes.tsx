@@ -5,6 +5,7 @@ import type { RouteConfig } from "@/types";
 const Home = lazy(() => import("@/pages/Home"));
 const Resume = lazy(() => import("@/pages/Resume"));
 const Experience = lazy(() => import("@/pages/Experience"));
+const ExperienceDetail = lazy(() => import("@/pages/Experience/ExperienceDetail"));
 const Projects = lazy(() => import("@/pages/Projects"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/Blog/BlogPost"));
@@ -46,6 +47,10 @@ export const routes: RouteConfig[] = [
 
 // Non-navigation routes (not shown in menu)
 export const detailRoutes: RouteConfig[] = [
+	{
+		path: "/experience/:id",
+		element: ExperienceDetail,
+	},
 	{
 		path: "/blog/:slug",
 		element: BlogPost,
