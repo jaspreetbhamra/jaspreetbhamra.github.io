@@ -17,7 +17,7 @@ export default function App() {
 	return (
 		<ErrorBoundary>
 			<ThemeProvider>
-				<BrowserRouter basename="/jaspreetbhamra.github.io">
+				<BrowserRouter basename="/">
 					<AppLayout>
 						<Suspense fallback={<LoadingFallback />}>
 							<Routes>
