@@ -7,6 +7,7 @@ const Resume = lazy(() => import("@/pages/Resume"));
 const Experience = lazy(() => import("@/pages/Experience"));
 const Projects = lazy(() => import("@/pages/Projects"));
 const Blog = lazy(() => import("@/pages/Blog"));
+const Interests = lazy(() => import("@/pages/Interests"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 export const routes: RouteConfig[] = [
@@ -34,6 +35,11 @@ export const routes: RouteConfig[] = [
 		path: "/blog",
 		element: Blog,
 		label: "Blog",
+	},
+	{
+		path: "/interests",
+		element: Interests,
+		label: "Interests",
 	},
 ];
 
