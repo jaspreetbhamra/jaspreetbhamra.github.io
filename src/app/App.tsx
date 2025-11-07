@@ -4,7 +4,7 @@ import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 import { LoadingSpinner } from "@/components/shared/LoadingSpinner";
 import { ThemeProvider } from "@/hooks/useTheme";
 import { AppLayout } from "./layout/AppLayout";
-import { notFoundRoute, routes } from "./routes";
+import { detailRoutes, notFoundRoute, routes } from "./routes";
 
 export default function App() {
 	return (
@@ -15,6 +15,9 @@ export default function App() {
 						<Suspense fallback={<LoadingSpinner />}>
 							<Routes>
 								{routes.map((route) => (
+									<Route key={route.path} path={route.path} element={<route.element />} />
+								))}
+								{detailRoutes.map((route) => (
 									<Route key={route.path} path={route.path} element={<route.element />} />
 								))}
 								<Route path={notFoundRoute.path} element={<notFoundRoute.element />} />
