@@ -15,7 +15,7 @@ export default function Resume() {
 						</h1>
 					</div>
 					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
-						Download or view my resume to learn more about my experience and skills.
+						Download or view my resume to learn more about my experience and skills
 					</p>
 				</div>
 
@@ -42,16 +42,17 @@ export default function Resume() {
 
 						{/* Title */}
 						<div className="text-center">
-							<h2 className="heading-3 mb-2">Jaspreet Bhamra</h2>
+							<h2 className="heading-3 mb-2">Jaspreet Kaur Bhamra</h2>
 							<p className="text-neutral-600 dark:text-neutral-400">
-								Software Engineer Resume
+								Resume
 							</p>
 						</div>
 
 						{/* Action Buttons */}
 						<div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+							{/* https://drive.google.com/file/d/1dutCWoKjZ_n3XdYozZNvu5iDTLdihdAT/ */}
 							<a
-								href="/resume_jaspreet.pdf"
+								href="/resume.pdf"
 								target="_blank"
 								rel="noopener noreferrer"
 							>
@@ -60,7 +61,7 @@ export default function Resume() {
 									View Resume
 								</Button>
 							</a>
-							<a href="/resume_jaspreet.pdf" download>
+							<a href="/resume.pdf" download="resume_jaspreet.pdf">
 								<Button variant="outline" size="lg" fullWidth>
 									<Download className="w-5 h-5 mr-2" />
 									Download PDF
