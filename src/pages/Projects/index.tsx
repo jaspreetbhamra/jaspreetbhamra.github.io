@@ -57,16 +57,18 @@ export default function Projects() {
 		<PageContainer>
 			<div className="max-w-6xl mx-auto">
 				{/* Header */}
-				<div className="mb-12">
-					<h1 className="heading-1 mb-4">Projects</h1>
-					<p className="body-large text-neutral-600 dark:text-neutral-400">
+				<div className="mb-16">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
+						Projects
+					</h1>
+					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
 						A collection of projects I've built, showcasing different technologies
 						and problem-solving approaches.
 					</p>
 				</div>
 
 				{/* Projects Grid */}
-				<div className="grid md:grid-cols-2 gap-6">
+				<div className="grid md:grid-cols-2 gap-8">
 					{projects.map((project) => (
 						<Card
 							key={project.href}

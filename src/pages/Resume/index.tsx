@@ -7,9 +7,11 @@ export default function Resume() {
 		<PageContainer>
 			<div className="max-w-4xl mx-auto">
 				{/* Header */}
-				<div className="text-center mb-12">
-					<h1 className="heading-1 mb-4">Resume</h1>
-					<p className="body-large text-neutral-600 dark:text-neutral-400">
+				<div className="text-center mb-16">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
+						Resume
+					</h1>
+					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
 						Download or view my resume to learn more about my experience and skills.
 					</p>
 				</div>
@@ -66,7 +68,7 @@ export default function Resume() {
 				</div>
 
 				{/* Quick Summary */}
-				<div className="mt-12 grid md:grid-cols-3 gap-6">
+				<div className="mt-16 grid md:grid-cols-3 gap-8">
 					<div className="text-center p-6 bg-neutral-50 dark:bg-neutral-900/50 rounded-lg">
 						<div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">
 							5+

@@ -34,17 +34,19 @@ const experiences = [
 export default function Experience() {
 	return (
 		<PageContainer>
-			<div className="max-w-4xl mx-auto">
+			<div className="max-w-5xl mx-auto">
 				{/* Header */}
-				<div className="mb-12">
-					<h1 className="heading-1 mb-4">Experience</h1>
-					<p className="body-large text-neutral-600 dark:text-neutral-400">
+				<div className="mb-16">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
+						Experience
+					</h1>
+					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
 						A timeline of my professional journey and key accomplishments.
 					</p>
 				</div>
 
 				{/* Experience Cards */}
-				<div className="space-y-6">
+				<div className="space-y-8">
 					{experiences.map((exp) => (
 						<Card
 							key={exp.href}

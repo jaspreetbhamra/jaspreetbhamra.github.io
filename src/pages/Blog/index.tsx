@@ -55,18 +55,20 @@ const posts = [
 export default function Blog() {
 	return (
 		<PageContainer>
-			<div className="max-w-4xl mx-auto">
+			<div className="max-w-5xl mx-auto">
 				{/* Header */}
-				<div className="mb-12">
-					<h1 className="heading-1 mb-4">Blog</h1>
-					<p className="body-large text-neutral-600 dark:text-neutral-400">
+				<div className="mb-16">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
+						Blog
+					</h1>
+					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
 						Thoughts on software development, tutorials, and lessons learned from
 						building products.
 					</p>
 				</div>
 
 				{/* Blog Posts */}
-				<div className="space-y-6">
+				<div className="space-y-8">
 					{posts.map((post) => (
 						<Card
 							key={post.href}
