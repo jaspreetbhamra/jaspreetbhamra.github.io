@@ -5,21 +5,37 @@ import { Link } from "@/components/ui/Link";
 
 export default function Home() {
 	return (
-		<PageContainer>
-			{/* Hero Section */}
-			<section className="flex items-center min-h-[calc(100vh-16rem)] py-12">
+		<PageContainer className="!px-0 !py-0">
+			{/* Hero Banner */}
+			<div className="relative h-64 md:h-80 lg:h-96 w-full overflow-hidden">
+				{/* Background gradient */}
+				<div className="absolute inset-0 bg-gradient-to-br from-accent-500 via-accent-600 to-accent-700 dark:from-accent-600 dark:via-accent-700 dark:to-accent-900" />
+
+				{/* Optional: Replace with actual image */}
+				{/* <img
+					src="/hero-banner.jpg"
+					alt="Hero banner"
+					className="absolute inset-0 w-full h-full object-cover opacity-50"
+				/> */}
+
+				{/* Overlay pattern */}
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+			</div>
+
+			{/* Hero Content */}
+			<section className="relative -mt-32 px-4 md:px-8 pb-12">
 				<div className="w-full">
 					<div className="max-w-4xl mx-auto text-center">
 						{/* Greeting */}
-						<p className="text-accent-600 dark:text-accent-400 font-medium mb-4">
+						<p className="text-accent-400 dark:text-accent-300 font-medium mb-4 drop-shadow-lg">
 							Hi, I'm
 						</p>
 
 						{/* Name */}
-						<h1 className="heading-1 mb-6">Jaspreet Bhamra</h1>
+						<h1 className="heading-1 mb-6 drop-shadow-lg">Jaspreet Bhamra</h1>
 
 						{/* Tagline */}
-						<p className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl mx-auto">
+						<p className="text-xl md:text-2xl text-neutral-800 dark:text-neutral-200 mb-8 max-w-2xl mx-auto drop-shadow-md">
 							Software Engineer passionate about building clean, modern, and
 							accessible web experiences.
 						</p>
@@ -72,7 +88,7 @@ export default function Home() {
 			</section>
 
 			{/* About Section */}
-			<section className="py-16 border-t border-neutral-200 dark:border-neutral-800">
+			<section className="py-16 px-4 md:px-8 border-t border-neutral-200 dark:border-neutral-800">
 				<div className="max-w-3xl mx-auto">
 					<h2 className="heading-2 mb-6 text-center">About Me</h2>
 					<div className="space-y-4 text-neutral-700 dark:text-neutral-300 body-large">
