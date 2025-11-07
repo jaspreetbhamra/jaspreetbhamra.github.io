@@ -26,14 +26,15 @@ export function Card({
 }: CardProps) {
 	return (
 		<article className="group relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:shadow-soft-md dark:hover:shadow-soft-lg transition-all-base">
-			<Link to={href} className="block">
+			<Link to={href} className="block" aria-label={`${cta}: ${title}`}>
 				{/* Image */}
 				{image && (
 					<div className="aspect-video w-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden">
 						<img
 							src={image}
-							alt={title}
+							alt=""
 							className="w-full h-full object-cover group-hover:scale-105 transition-all-base"
+							loading="lazy"
 						/>
 					</div>
 				)}
@@ -49,7 +50,7 @@ export function Card({
 								</time>
 							)}
 							{tags && tags.length > 0 && (
-								<div className="flex gap-2 flex-wrap">
+								<div className="flex gap-2 flex-wrap" role="list" aria-label="Tags">
 									{tags.slice(0, 3).map((tag) => (
 										<Badge key={tag} variant="neutral" size="sm">
 											{tag}
