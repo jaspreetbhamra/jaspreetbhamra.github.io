@@ -8,10 +8,13 @@ export default function Resume() {
 			<div className="max-w-4xl mx-auto">
 				{/* Header */}
 				<div className="text-center mb-16">
-					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-900 dark:text-neutral-100">
-						Resume
-					</h1>
-					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
+					<div className="flex items-center justify-center gap-3 mb-6">
+						<div className="w-1 h-12 bg-gradient-to-b from-accent-500 to-accent-600 dark:from-accent-400 dark:to-accent-500 rounded-full" />
+						<h1 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-neutral-100">
+							Resume
+						</h1>
+					</div>
+					<p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed">
 						Download or view my resume to learn more about my experience and skills.
 					</p>
 				</div>
@@ -69,27 +72,27 @@ export default function Resume() {
 
 				{/* Quick Summary */}
 				<div className="mt-16 grid md:grid-cols-3 gap-8">
-					<div className="text-center p-6 bg-neutral-50 dark:bg-neutral-900/50 rounded-lg">
-						<div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+					<div className="group text-center p-8 bg-gradient-to-br from-accent-50 to-neutral-50 dark:from-accent-900/20 dark:to-neutral-900/50 border border-accent-200 dark:border-accent-800 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+						<div className="text-4xl font-bold bg-gradient-to-br from-accent-600 to-accent-700 dark:from-accent-400 dark:to-accent-300 bg-clip-text text-transparent mb-3">
 							5+
 						</div>
-						<p className="text-neutral-600 dark:text-neutral-400">
+						<p className="text-neutral-700 dark:text-neutral-300 font-medium">
 							Years Experience
 						</p>
 					</div>
-					<div className="text-center p-6 bg-neutral-50 dark:bg-neutral-900/50 rounded-lg">
-						<div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+					<div className="group text-center p-8 bg-gradient-to-br from-accent-50 to-neutral-50 dark:from-accent-900/20 dark:to-neutral-900/50 border border-accent-200 dark:border-accent-800 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+						<div className="text-4xl font-bold bg-gradient-to-br from-accent-600 to-accent-700 dark:from-accent-400 dark:to-accent-300 bg-clip-text text-transparent mb-3">
 							10+
 						</div>
-						<p className="text-neutral-600 dark:text-neutral-400">
+						<p className="text-neutral-700 dark:text-neutral-300 font-medium">
 							Projects Completed
 						</p>
 					</div>
-					<div className="text-center p-6 bg-neutral-50 dark:bg-neutral-900/50 rounded-lg">
-						<div className="text-2xl font-bold text-accent-600 dark:text-accent-400 mb-2">
+					<div className="group text-center p-8 bg-gradient-to-br from-accent-50 to-neutral-50 dark:from-accent-900/20 dark:to-neutral-900/50 border border-accent-200 dark:border-accent-800 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+						<div className="text-4xl font-bold bg-gradient-to-br from-accent-600 to-accent-700 dark:from-accent-400 dark:to-accent-300 bg-clip-text text-transparent mb-3">
 							15+
 						</div>
-						<p className="text-neutral-600 dark:text-neutral-400">
+						<p className="text-neutral-700 dark:text-neutral-300 font-medium">
 							Technologies
 						</p>
 					</div>
