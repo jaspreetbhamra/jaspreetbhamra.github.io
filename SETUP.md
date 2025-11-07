@@ -121,6 +121,88 @@ npm run deploy
 
 This builds the site and deploys to the `gh-pages` branch.
 
+## Analytics Setup
+
+The site includes Google Analytics 4 (GA4) tracking for visitor insights.
+
+### 1. Create Google Analytics Property
+
+1. Go to [Google Analytics](https://analytics.google.com/)
+2. Click "Admin" (gear icon in bottom left)
+3. Under "Property", click "Create Property"
+4. Fill in property details:
+   - Property name: "Portfolio Website"
+   - Time zone and currency
+5. Click "Next" and complete business details
+6. Click "Create"
+
+### 2. Get Measurement ID
+
+1. In your new property, click "Data Streams"
+2. Click "Add stream" → "Web"
+3. Enter your website URL: `https://jaspreetbhamra.github.io`
+4. Click "Create stream"
+5. Copy your **Measurement ID** (format: `G-XXXXXXXXXX`)
+
+### 3. Add Measurement ID to Project
+
+Create a `.env` file in the project root:
+
+```bash
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Replace `G-XXXXXXXXXX` with your actual Measurement ID.
+
+**Important:** The `.env` file is already in `.gitignore` and won't be committed.
+
+### 4. Configure for GitHub Pages
+
+For production deployment, add the Measurement ID as a GitHub Secret:
+
+1. Go to your GitHub repository
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click "New repository secret"
+4. Name: `VITE_GA_MEASUREMENT_ID`
+5. Value: Your Measurement ID (e.g., `G-XXXXXXXXXX`)
+6. Click "Add secret"
+
+### 5. Update GitHub Actions Workflow
+
+Add the environment variable to `.github/workflows/deploy.yml`:
+
+```yaml
+- name: Build
+  run: npm run build
+  env:
+    VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+```
+
+### 6. Verify Analytics
+
+After deployment:
+
+1. Visit your website
+2. Go to Google Analytics **Reports** → **Realtime**
+3. You should see active users on your site
+4. Navigate between pages to verify page views are tracked
+
+### Analytics Features
+
+- **Page view tracking**: Automatically tracks all route changes
+- **Production only**: Analytics disabled in development (`npm run dev`)
+- **Privacy-focused**: No tracking without explicit consent (you can add a cookie banner if needed)
+
+### Viewing Analytics
+
+Access your analytics dashboard at: [analytics.google.com](https://analytics.google.com/)
+
+Key reports:
+- **Realtime**: See current visitors
+- **Acquisition**: How users find your site
+- **Engagement**: Pages viewed, time on site
+- **Demographics**: User locations and interests
+
 ## Project Structure
 
 ```

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from "@/components/shared/Analytics";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 import { LoadingSpinner } from "@/components/shared/LoadingSpinner";
 import { ThemeProvider } from "@/hooks/useTheme";
@@ -11,6 +12,7 @@ export default function App() {
 		<ErrorBoundary>
 			<ThemeProvider>
 				<BrowserRouter basename="/">
+					<Analytics />
 					<AppLayout>
 						<Suspense fallback={<LoadingSpinner />}>
 							<Routes>
