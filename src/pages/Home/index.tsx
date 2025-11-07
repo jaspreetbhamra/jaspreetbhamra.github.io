@@ -11,15 +11,17 @@ export default function Home() {
 				<div className="w-full">
 					<div className="max-w-4xl mx-auto text-center">
 						{/* Greeting */}
-						<p className="text-accent-600 dark:text-accent-400 font-medium mb-4">
+						<p className="text-accent-600 dark:text-accent-400 font-medium mb-6 text-lg tracking-wide">
 							Hi, I'm
 						</p>
 
-						{/* Name */}
-						<h1 className="heading-1 mb-6">Jaspreet Bhamra</h1>
+						{/* Name with Gradient */}
+						<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 dark:from-accent-400 dark:via-accent-300 dark:to-accent-500 bg-clip-text text-transparent leading-tight tracking-tight">
+							Jaspreet Bhamra
+						</h1>
 
 						{/* Tagline */}
-						<p className="text-xl md:text-2xl text-neutral-700 dark:text-neutral-300 mb-8 max-w-2xl mx-auto">
+						<p className="text-xl md:text-2xl lg:text-3xl text-neutral-600 dark:text-neutral-400 font-light mb-12 max-w-3xl mx-auto leading-relaxed">
 							Software Engineer passionate about building clean, modern, and
 							accessible web experiences.
 						</p>
@@ -90,10 +92,12 @@ export default function Home() {
 			</section>
 
 			{/* About Section */}
-			<section className="py-16 border-t border-neutral-200 dark:border-neutral-800">
+			<section className="py-20 border-t border-neutral-200 dark:border-neutral-800">
 				<div className="max-w-3xl mx-auto">
-					<h2 className="heading-2 mb-6 text-center">About Me</h2>
-					<div className="space-y-4 text-neutral-700 dark:text-neutral-300 body-large">
+					<h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-neutral-900 dark:text-neutral-100">
+						About Me
+					</h2>
+					<div className="space-y-6 text-lg md:text-xl text-neutral-700 dark:text-neutral-300 leading-relaxed">
 						<p>
 							I'm a software engineer with a passion for creating intuitive and
 							performant web applications. I enjoy working across the full stack,
