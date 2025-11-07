@@ -25,7 +25,7 @@ export function Card({
 	children,
 }: CardProps) {
 	return (
-		<article className="group relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:shadow-soft-md dark:hover:shadow-soft-lg transition-all-base">
+		<article className="group relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-accent-300 dark:hover:border-accent-600 transition-all duration-300 ease-out">
 			<Link to={href} className="block" aria-label={`${cta}: ${title}`}>
 				{/* Image */}
 				{image && (
@@ -33,7 +33,7 @@ export function Card({
 						<img
 							src={image}
 							alt=""
-							className="w-full h-full object-cover group-hover:scale-105 transition-all-base"
+							className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
 							loading="lazy"
 						/>
 					</div>
@@ -62,7 +62,7 @@ export function Card({
 					)}
 
 					{/* Title */}
-					<h3 className="heading-3 text-neutral-900 dark:text-neutral-50 mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors-fast">
+					<h3 className="heading-3 text-neutral-900 dark:text-neutral-50 mb-2 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors duration-200">
 						{title}
 					</h3>
 
@@ -75,9 +75,9 @@ export function Card({
 					{children}
 
 					{/* CTA */}
-					<div className="flex items-center gap-2 text-accent-600 dark:text-accent-400 font-medium group-hover:gap-3 transition-all-base">
+					<div className="flex items-center gap-2 text-accent-600 dark:text-accent-400 font-medium group-hover:gap-3 transition-all duration-200">
 						<span>{cta}</span>
-						<ArrowRight className="w-4 h-4" />
+						<ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
 					</div>
 				</div>
 			</Link>

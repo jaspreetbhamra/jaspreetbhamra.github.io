@@ -12,11 +12,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
 	primary:
-		"bg-accent-500 text-white hover:bg-accent-600 dark:bg-accent-400 dark:hover:bg-accent-300 dark:text-neutral-900",
+		"bg-accent-500 text-white hover:bg-accent-600 hover:scale-105 hover:shadow-lg dark:bg-accent-400 dark:hover:bg-accent-300 dark:text-neutral-900",
 	secondary:
-		"bg-neutral-100 text-neutral-900 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700",
+		"bg-neutral-100 text-neutral-900 hover:bg-neutral-200 hover:scale-105 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700",
 	outline:
-		"border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-900",
+		"border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 hover:border-accent-500 hover:scale-105 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-900 dark:hover:border-accent-400",
 	ghost:
 		"text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-800",
 };
@@ -37,7 +37,7 @@ export function Button({
 	...props
 }: ButtonProps) {
 	const baseStyles =
-		"inline-flex items-center justify-center font-medium rounded-lg transition-colors-fast disabled:opacity-50 disabled:cursor-not-allowed";
+		"group inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed active:scale-95";
 
 	const classes = [
 		baseStyles,

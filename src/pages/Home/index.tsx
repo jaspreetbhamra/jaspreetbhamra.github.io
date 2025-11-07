@@ -27,11 +27,11 @@ export default function Home() {
 						</p>
 
 						{/* CTA Buttons */}
-						<div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+						<div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
 							<Link to="/projects">
 								<Button size="lg">
 									View My Work
-									<ArrowRight className="w-5 h-5 ml-2" />
+									<ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
 								</Button>
 							</Link>
 							<Link to="/resume">
@@ -42,12 +42,12 @@ export default function Home() {
 						</div>
 
 						{/* Social Links */}
-						<div className="flex items-center justify-center gap-6">
+						<div className="flex items-center justify-center gap-8">
 							<a
 								href="https://github.com"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors-fast"
+								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 hover:scale-110 transition-all duration-200"
 								aria-label="GitHub"
 							>
 								<svg
@@ -67,7 +67,7 @@ export default function Home() {
 								href="https://linkedin.com"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors-fast"
+								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 hover:scale-110 transition-all duration-200"
 								aria-label="LinkedIn"
 							>
 								<svg
@@ -81,7 +81,7 @@ export default function Home() {
 							</a>
 							<a
 								href="mailto:contact@example.com"
-								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors-fast"
+								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 hover:scale-110 transition-all duration-200"
 								aria-label="Email"
 							>
 								<Mail className="w-6 h-6" />
