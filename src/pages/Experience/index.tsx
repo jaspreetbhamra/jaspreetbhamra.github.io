@@ -1,35 +1,8 @@
 import { PageContainer } from "@/app/layout/PageContainer";
 import { Card } from "@/components/ui/Card";
+import { getExperienceSummaries } from "@/data/experiences";
 
-const experiences = [
-	{
-		title: "Senior Software Engineer",
-		company: "Tech Company Inc.",
-		description:
-			"Led development of scalable microservices architecture serving millions of users. Mentored junior developers and established best practices for code quality and testing. Implemented CI/CD pipelines reducing deployment time by 60%.",
-		tags: ["React", "Node.js", "AWS", "TypeScript"],
-		date: "2021 - Present",
-		href: "/experience/tech-company",
-	},
-	{
-		title: "Software Engineer",
-		company: "Startup Labs",
-		description:
-			"Built full-stack web applications using modern JavaScript frameworks. Collaborated with product and design teams to deliver user-centric features. Optimized application performance resulting in 40% faster load times.",
-		tags: ["Vue.js", "Python", "PostgreSQL"],
-		date: "2019 - 2021",
-		href: "/experience/startup-labs",
-	},
-	{
-		title: "Junior Developer",
-		company: "Digital Agency",
-		description:
-			"Developed responsive websites and web applications for diverse clients. Worked with cross-functional teams to deliver projects on time and within budget. Gained experience in modern front-end frameworks and best practices.",
-		tags: ["JavaScript", "HTML/CSS", "React"],
-		date: "2018 - 2019",
-		href: "/experience/digital-agency",
-	},
-];
+const experiences = getExperienceSummaries();
 
 export default function Experience() {
 	return (

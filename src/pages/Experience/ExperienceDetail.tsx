@@ -1,57 +1,10 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
 import { PageContainer } from "@/app/layout/PageContainer";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-
-interface SubProject {
-	title: string;
-	description: string;
-	techStack: string[];
-	highlights?: string[];
-}
-
-const experience = {
-	company: "Company Name",
-	logo: "/company-logo.svg", // Placeholder - replace with actual logo path
-	position: "Senior Software Engineer",
-	duration: "2021 - Present",
-	location: "San Francisco, CA",
-	overview:
-		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-	subProjects: [
-		{
-			title: "Sub-Project 1",
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Detailed description of the sub-project and your contributions.",
-			techStack: ["React", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
-			highlights: [
-				"Achievement or impact point 1",
-				"Achievement or impact point 2",
-				"Achievement or impact point 3",
-			],
-		},
-		{
-			title: "Sub-Project 2",
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Another detailed description of a different sub-project.",
-			techStack: ["Vue.js", "Python", "Docker", "Kubernetes"],
-			highlights: [
-				"Key contribution 1",
-				"Key contribution 2",
-				"Key contribution 3",
-			],
-		},
-		{
-			title: "Sub-Project 3",
-			description:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Third sub-project with its own tech stack and achievements.",
-			techStack: ["Next.js", "GraphQL", "MongoDB", "Redis"],
-			highlights: ["Impact metric 1", "Impact metric 2"],
-		},
-	] as SubProject[],
-};
+import { getExperienceById, type SubProject } from "@/data/experiences";
 
 function CollapsibleProject({ project }: { project: SubProject }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -132,6 +85,14 @@ function CollapsibleProject({ project }: { project: SubProject }) {
 }
 
 export default function ExperienceDetail() {
+	const { id } = useParams<{ id: string }>();
+	const experience = id ? getExperienceById(id) : undefined;
+
+	// If experience not found, redirect to 404 or experience list
+	if (!experience) {
+		return <Navigate to="/experience" replace />;
+	}
+
 	return (
 		<PageContainer>
 			<div className="max-w-5xl mx-auto">
@@ -151,20 +112,26 @@ export default function ExperienceDetail() {
 						{/* Company Logo */}
 						<div className="flex-shrink-0 w-20 h-20 bg-neutral-100 dark:bg-neutral-800 rounded-xl flex items-center justify-center overflow-hidden border border-neutral-200 dark:border-neutral-700">
 							{/* Replace this with actual logo img when available */}
-							<img
-								src={experience.logo}
-								alt={`${experience.company} logo`}
-								className="w-full h-full object-contain"
-								onError={(e) => {
-									// Fallback to initials if logo fails to load
-									const target = e.target as HTMLImageElement;
-									target.style.display = "none";
-									const parent = target.parentElement;
-									if (parent) {
-										parent.innerHTML = `<span class="text-2xl font-bold text-accent-600 dark:text-accent-400">${experience.company.charAt(0)}</span>`;
-									}
-								}}
-							/>
+							{experience.logo ? (
+								<img
+									src={experience.logo}
+									alt={`${experience.company} logo`}
+									className="w-full h-full object-contain"
+									onError={(e) => {
+										// Fallback to initials if logo fails to load
+										const target = e.target as HTMLImageElement;
+										target.style.display = "none";
+										const parent = target.parentElement;
+										if (parent) {
+											parent.innerHTML = `<span class="text-2xl font-bold text-accent-600 dark:text-accent-400">${experience.company.charAt(0)}</span>`;
+										}
+									}}
+								/>
+							) : (
+								<span className="text-2xl font-bold text-accent-600 dark:text-accent-400">
+									{experience.company.charAt(0)}
+								</span>
+							)}
 						</div>
 
 						{/* Company Info */}
@@ -210,7 +177,7 @@ export default function ExperienceDetail() {
 
 					<div className="space-y-6">
 						{experience.subProjects.map((project, index) => (
-							<CollapsibleProject key={index} project={project} />
+							<CollapsibleProject key={`${project.title}-${index}`} project={project} />
 						))}
 					</div>
 				</div>
