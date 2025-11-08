@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
+import { ImageModal } from "@/components/ui/ImageModal";
 import type { Publication } from "@/data/experiences";
 
 interface PublicationsProps {
@@ -7,6 +9,11 @@ interface PublicationsProps {
 }
 
 export function Publications({ publications }: PublicationsProps) {
+	const [selectedImage, setSelectedImage] = useState<{
+		src: string;
+		alt: string;
+	} | null>(null);
+
 	if (!publications || publications.length === 0) {
 		return null;
 	}
@@ -44,14 +51,24 @@ export function Publications({ publications }: PublicationsProps) {
 						<div className={`flex flex-col ${pub.image ? "md:flex-row" : ""} gap-6`}>
 							{/* Graphical Abstract Image */}
 							{pub.image && (
-								<div className="md:w-64 md:flex-shrink-0 bg-neutral-50 dark:bg-neutral-800/50">
+								<button
+									type="button"
+									onClick={() =>
+										setSelectedImage({
+											src: pub.image!,
+											alt: `Graphical abstract for ${pub.title}`,
+										})
+									}
+									className="md:w-64 md:flex-shrink-0 bg-neutral-50 dark:bg-neutral-800/50 cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors duration-200 group"
+									aria-label={`View full size graphical abstract for ${pub.title}`}
+								>
 									<img
 										src={pub.image}
 										alt={`Graphical abstract for ${pub.title}`}
 										loading="lazy"
-										className="w-full h-full object-cover md:object-contain p-4"
+										className="w-full h-full object-cover md:object-contain p-4 group-hover:scale-105 transition-transform duration-200"
 									/>
-								</div>
+								</button>
 							)}
 
 							{/* Publication Content */}
@@ -94,6 +111,14 @@ export function Publications({ publications }: PublicationsProps) {
 					</div>
 				))}
 			</div>
+
+			{/* Image Modal */}
+			<ImageModal
+				isOpen={selectedImage !== null}
+				onClose={() => setSelectedImage(null)}
+				imageSrc={selectedImage?.src || ""}
+				imageAlt={selectedImage?.alt || ""}
+			/>
 		</div>
 	);
 }
