@@ -5,6 +5,7 @@ import { PageContainer } from "@/app/layout/PageContainer";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { getExperienceById, type SubProject } from "@/data/experiences";
+import { Publications } from "./Publications";
 
 function CollapsibleProject({ project }: { project: SubProject }) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -39,14 +40,14 @@ function CollapsibleProject({ project }: { project: SubProject }) {
 			{isOpen && (
 				<div className="px-6 pb-6 border-t border-neutral-200 dark:border-neutral-800">
 					{/* Full Description */}
-					<div className="pt-6 mb-6">
+					{/* <div className="pt-6 mb-6">
 						<p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
 							{project.description}
 						</p>
-					</div>
+					</div> */}
 
 					{/* Tech Stack */}
-					<div className="mb-6">
+					<div className="pt-6 mb-6">
 						<h4 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-3 uppercase tracking-wide">
 							Tech Stack
 						</h4>
@@ -167,7 +168,7 @@ export default function ExperienceDetail() {
 				</div>
 
 				{/* Sub-Projects Section */}
-				<div>
+				<div className="mb-16">
 					<div className="flex items-center gap-3 mb-8">
 						<div className="w-1 h-8 bg-gradient-to-b from-accent-500 to-accent-600 dark:from-accent-400 dark:to-accent-500 rounded-full" />
 						<h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100">
@@ -181,6 +182,11 @@ export default function ExperienceDetail() {
 						))}
 					</div>
 				</div>
+
+				{/* Publications Section (Optional) */}
+				{experience.publications && experience.publications.length > 0 && (
+					<Publications publications={experience.publications} />
+				)}
 			</div>
 		</PageContainer>
 	);
