@@ -23,7 +23,6 @@ export interface Experience {
 	duration: string;
 	location: string;
 	overview: string;
-	graphicalAbstract?: string; // Optional visual summary/graphical abstract for the experience
 	subProjects: SubProject[];
 	publications?: Publication[];
 	// Preview fields for list view

@@ -157,38 +157,14 @@ export default function ExperienceDetail() {
 					</div>
 
 					{/* Overview */}
-					{experience.graphicalAbstract ? (
-						<div className="grid md:grid-cols-2 gap-6">
-							{/* Overview Text Card */}
-							<div className="bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6">
-								<h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
-									Overview
-								</h2>
-								<p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-									{experience.overview}
-								</p>
-							</div>
-
-							{/* Graphical Abstract Card */}
-							<div className="bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 flex items-center justify-center">
-								<img
-									src={experience.graphicalAbstract}
-									alt={`Visual overview of work at ${experience.company}`}
-									loading="lazy"
-									className="w-full h-auto object-contain rounded-lg"
-								/>
-							</div>
-						</div>
-					) : (
-						<div className="bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6">
-							<h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
-								Overview
-							</h2>
-							<p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-								{experience.overview}
-							</p>
-						</div>
-					)}
+					<div className="bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-xl p-6">
+						<h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-3">
+							Overview
+						</h2>
+						<p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+							{experience.overview}
+						</p>
+					</div>
 				</div>
 
 				{/* Sub-Projects Section */}
