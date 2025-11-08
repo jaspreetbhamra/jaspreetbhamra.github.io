@@ -12,12 +12,12 @@ export default function Home() {
 					<div className="max-w-4xl mx-auto text-center">
 						{/* Greeting */}
 						<p className="text-accent-600 dark:text-accent-400 font-medium mb-6 text-lg tracking-wide">
-							Hi, I'm
+							Hi! I'm
 						</p>
 
 						{/* Name with Gradient */}
 						<h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-r from-accent-600 via-accent-500 to-accent-700 dark:from-accent-400 dark:via-accent-300 dark:to-accent-500 bg-clip-text text-transparent leading-tight tracking-tight">
-							Jaspreet Kaur Bhamra
+							Jaspreet
 						</h1>
 
 						{/* Tagline */}
@@ -79,6 +79,23 @@ export default function Home() {
 									<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
 								</svg>
 								<span className="sr-only">LinkedIn</span>
+							</a>
+							<a
+								href="https://scholar.google.com/citations?user=xwU4PZsAAAAJ&hl=en"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-neutral-600 dark:text-neutral-400 hover:text-accent-600 dark:hover:text-accent-400 hover:scale-110 transition-all duration-200"
+								aria-label="Google Scholar"
+							>
+								<svg
+									className="w-6 h-6"
+									fill="currentColor"
+									viewBox="0 0 24 24"
+									aria-hidden="true"
+								>
+									<path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+								</svg>
+								<span className="sr-only">Google Scholar</span>
 							</a>
 							<a
 								href="mailto:jbhamra24@gmail.com"
