@@ -39,41 +39,58 @@ export function Publications({ publications }: PublicationsProps) {
 				{publications.map((pub, index) => (
 					<div
 						key={`${pub.title}-${index}`}
-						className="border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 bg-white dark:bg-neutral-900 hover:border-accent-300 dark:hover:border-accent-700 transition-colors duration-200"
+						className="border border-neutral-200 dark:border-neutral-800 rounded-xl overflow-hidden bg-white dark:bg-neutral-900 hover:border-accent-300 dark:hover:border-accent-700 transition-colors duration-200"
 					>
-						{/* Publication Title */}
-						<div className="flex items-start justify-between gap-4 mb-3">
-							<h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex-1">
-								{pub.title}
-							</h3>
-							{pub.type && (
-								<Badge variant={getTypeBadgeVariant(pub.type)} size="sm">
-									{pub.type}
-								</Badge>
+						<div className={`flex flex-col ${pub.image ? "md:flex-row" : ""} gap-6`}>
+							{/* Graphical Abstract Image */}
+							{pub.image && (
+								<div className="md:w-64 md:flex-shrink-0 bg-neutral-50 dark:bg-neutral-800/50">
+									<img
+										src={pub.image}
+										alt={`Graphical abstract for ${pub.title}`}
+										loading="lazy"
+										className="w-full h-full object-cover md:object-contain p-4"
+									/>
+								</div>
 							)}
+
+							{/* Publication Content */}
+							<div className="flex-1 p-6">
+								{/* Publication Title */}
+								<div className="flex items-start justify-between gap-4 mb-3">
+									<h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 flex-1">
+										{pub.title}
+									</h3>
+									{pub.type && (
+										<Badge variant={getTypeBadgeVariant(pub.type)} size="sm">
+											{pub.type}
+										</Badge>
+									)}
+								</div>
+
+								{/* Authors */}
+								<p className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
+									{pub.authors.join(", ")}
+								</p>
+
+								{/* Venue and Year */}
+								<p className="text-sm text-neutral-700 dark:text-neutral-300 mb-4">
+									<span className="font-medium">{pub.venue}</span>
+									<span className="text-neutral-500 dark:text-neutral-500"> • {pub.year}</span>
+								</p>
+
+								{/* Link */}
+								<a
+									href={pub.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors duration-200"
+								>
+									<ExternalLink className="w-4 h-4" />
+									<span>View Publication</span>
+								</a>
+							</div>
 						</div>
-
-						{/* Authors */}
-						<p className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
-							{pub.authors.join(", ")}
-						</p>
-
-						{/* Venue and Year */}
-						<p className="text-sm text-neutral-700 dark:text-neutral-300 mb-4">
-							<span className="font-medium">{pub.venue}</span>
-							<span className="text-neutral-500 dark:text-neutral-500"> • {pub.year}</span>
-						</p>
-
-						{/* Link */}
-						<a
-							href={pub.link}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-700 dark:hover:text-accent-300 transition-colors duration-200"
-						>
-							<ExternalLink className="w-4 h-4" />
-							<span>View Publication</span>
-						</a>
 					</div>
 				))}
 			</div>

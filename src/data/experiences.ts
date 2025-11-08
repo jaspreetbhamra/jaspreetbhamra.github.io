@@ -12,6 +12,7 @@ export interface Publication {
 	year: string;
 	link: string;
 	type?: "conference" | "journal" | "preprint" | "workshop";
+	image?: string; // Optional graphical abstract or preview image
 }
 
 export interface Experience {
