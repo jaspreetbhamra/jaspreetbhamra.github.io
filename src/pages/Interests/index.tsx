@@ -1,5 +1,6 @@
 import { Music, Palette, Camera } from "lucide-react";
 import { PageContainer } from "@/app/layout/PageContainer";
+import { interestsConfig, hasVisibleSections } from "@/data/interests.config";
 
 // Sample gallery items
 const paintings = [
@@ -15,6 +16,8 @@ const photos = [
 ];
 
 export default function Interests() {
+	const { showPaintings, showPhotography, showMusic } = interestsConfig;
+
 	return (
 		<PageContainer>
 			<div className="max-w-6xl mx-auto">
@@ -26,8 +29,22 @@ export default function Interests() {
 					</p>
 				</div>
 
+				{/* No visible sections message */}
+				{!hasVisibleSections() && (
+					<div className="flex items-center justify-center min-h-[400px]">
+						<div className="text-center max-w-md">
+							<h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+								Content coming soon
+							</h2>
+							<p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+								I'm currently curating content for this section. Check back soon!
+							</p>
+						</div>
+					</div>
+				)}
+
 				{/* Paintings Section */}
-				<section className="mb-16">
+				{showPaintings && <section className="mb-16">
 					<div className="flex items-center gap-3 mb-6">
 						<Palette className="w-6 h-6 text-accent-600 dark:text-accent-400" />
 						<h2 className="heading-2">Paintings</h2>
@@ -58,10 +75,10 @@ export default function Interests() {
 							</div>
 						))}
 					</div>
-				</section>
+				</section>}
 
 				{/* Photography Section */}
-				<section className="mb-16">
+				{showPhotography && <section className="mb-16">
 					<div className="flex items-center gap-3 mb-6">
 						<Camera className="w-6 h-6 text-accent-600 dark:text-accent-400" />
 						<h2 className="heading-2">Photography</h2>
@@ -92,10 +109,10 @@ export default function Interests() {
 							</div>
 						))}
 					</div>
-				</section>
+				</section>}
 
 				{/* Music Section */}
-				<section className="mb-16">
+				{showMusic && <section className="mb-16">
 					<div className="flex items-center gap-3 mb-6">
 						<Music className="w-6 h-6 text-accent-600 dark:text-accent-400" />
 						<h2 className="heading-2">Music</h2>
@@ -145,10 +162,9 @@ export default function Interests() {
 							loading="lazy"
 						/> */}
 					</div>
-				</section>
 
-				{/* Audio Snippets Section */}
-				<section>
+					{/* Audio Snippets Section */}
+					<div className="mt-12">
 					<h2 className="heading-2 mb-6">Music Snippets</h2>
 					<div className="grid gap-4">
 						{[1, 2, 3].map((i) => (
@@ -178,7 +194,8 @@ export default function Interests() {
 							</div>
 						))}
 					</div>
-				</section>
+					</div>
+				</section>}
 			</div>
 		</PageContainer>
 	);

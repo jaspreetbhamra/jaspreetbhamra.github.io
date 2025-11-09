@@ -18,7 +18,7 @@ export function Header() {
 						to="/"
 						className="text-xl font-semibold text-neutral-900 dark:text-neutral-50 hover:text-accent-600 dark:hover:text-accent-400 transition-colors-fast"
 					>
-						Jaspreet Bhamra
+						Jaspreet Kaur Bhamra
 					</Link>
 
 					{/* Navigation */}

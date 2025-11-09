@@ -6,7 +6,7 @@ import type { LazyExoticComponent } from "react";
 
 export interface RouteConfig {
 	path: string;
-	element: LazyExoticComponent<() => React.JSX.Element>;
+	element: LazyExoticComponent<() => React.JSX.Element | null>;
 	label?: string;
 }
 

@@ -7,6 +7,7 @@ const Resume = lazy(() => import("@/pages/Resume"));
 const Experience = lazy(() => import("@/pages/Experience"));
 const ExperienceDetail = lazy(() => import("@/pages/Experience/ExperienceDetail"));
 const Projects = lazy(() => import("@/pages/Projects"));
+const ProjectDetail = lazy(() => import("@/pages/Projects/ProjectDetail"));
 const Blog = lazy(() => import("@/pages/Blog"));
 const BlogPost = lazy(() => import("@/pages/Blog/BlogPost"));
 const Interests = lazy(() => import("@/pages/Interests"));
@@ -50,6 +51,10 @@ export const detailRoutes: RouteConfig[] = [
 	{
 		path: "/experience/:id",
 		element: ExperienceDetail,
+	},
+	{
+		path: "/projects/:id",
+		element: ProjectDetail,
 	},
 	{
 		path: "/blog/:slug",

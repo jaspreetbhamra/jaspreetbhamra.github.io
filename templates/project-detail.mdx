@@ -1,0 +1,178 @@
+---
+title: "Your Project Title"
+date: "2024-03-15"
+description: "Brief description of your project"
+tags: ["React", "TypeScript", "API"]
+---
+
+# Overview
+
+Provide a comprehensive overview of your project. What problem does it solve? What makes it interesting or unique?
+
+## Key Features
+
+- **Feature 1**: Description of the first major feature
+- **Feature 2**: Description of the second major feature
+- **Feature 3**: Description of the third major feature
+- **Feature 4**: Additional features
+
+## Technology Stack
+
+This project was built using:
+
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express
+- **Database**: PostgreSQL
+- **Deployment**: Vercel, Docker
+- **Other Tools**: Jest, Playwright, GitHub Actions
+
+## Architecture
+
+Describe the high-level architecture of your project.
+
+```
+┌─────────────┐         ┌─────────────┐         ┌──────────────┐
+│   Client    │────────▶│     API     │────────▶│   Database   │
+│  (React)    │◀────────│  (Express)  │◀────────│ (PostgreSQL) │
+└─────────────┘         └─────────────┘         └──────────────┘
+```
+
+### Component Structure
+
+```
+src/
+├── components/
+│   ├── ui/          # Reusable UI components
+│   ├── features/    # Feature-specific components
+│   └── layouts/     # Layout components
+├── hooks/           # Custom React hooks
+├── utils/           # Utility functions
+└── types/           # TypeScript type definitions
+```
+
+## Implementation Details
+
+### Feature 1: Authentication
+
+Describe how you implemented this feature, including code examples:
+
+```typescript
+interface User {
+  id: string;
+  email: string;
+  name: string;
+}
+
+async function authenticateUser(credentials: Credentials): Promise<User> {
+  const response = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(credentials),
+  });
+
+  if (!response.ok) {
+    throw new Error('Authentication failed');
+  }
+
+  return response.json();
+}
+```
+
+### Feature 2: Real-time Updates
+
+Explain another key feature with relevant details.
+
+## Challenges & Solutions
+
+### Challenge 1: Performance Optimization
+
+**Problem**: Initial load time was too slow for mobile devices.
+
+**Solution**: Implemented code splitting and lazy loading, reducing initial bundle size by 60%.
+
+```javascript
+// Before
+import HeavyComponent from './HeavyComponent';
+
+// After
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+```
+
+### Challenge 2: State Management
+
+**Problem**: State was becoming difficult to manage across many components.
+
+**Solution**: Introduced a centralized state management solution with clear data flow.
+
+## Screenshots
+
+Include screenshots or images showcasing your project:
+
+![Project Dashboard](/assets/projects/your-project/dashboard.png)
+*Caption: Main dashboard showing key metrics*
+
+![Feature View](/assets/projects/your-project/feature.png)
+*Caption: Detailed view of primary feature*
+
+## Demo & Links
+
+- 🔗 **Live Demo**: [https://your-project.com](https://your-project.com)
+- 💻 **GitHub**: [https://github.com/username/project](https://github.com/username/project)
+- 📄 **Documentation**: [https://docs.your-project.com](https://docs.your-project.com)
+
+## Results & Impact
+
+Quantify the results if possible:
+
+- **Users**: 10,000+ active users
+- **Performance**: 40% reduction in load time
+- **Engagement**: 85% increase in user retention
+- **Code Quality**: 90% test coverage
+
+## Future Enhancements
+
+- [ ] Add mobile application
+- [ ] Implement advanced analytics
+- [ ] Support for multiple languages
+- [ ] Integration with third-party services
+
+## Lessons Learned
+
+Share key takeaways from building this project:
+
+1. **Lesson 1**: Importance of early performance optimization
+2. **Lesson 2**: Value of comprehensive testing
+3. **Lesson 3**: Benefits of modular architecture
+
+---
+
+## Usage Instructions
+
+### Step 1: Add project metadata
+Add to `src/data/projects.ts`:
+```typescript
+{
+  id: "your-project-id",
+  title: "Your Project Title",
+  description: "Brief description...",
+  tags: ["React", "TypeScript"],
+  date: "2024-03-15",
+  status: "completed",
+  link: "https://github.com/username/project",
+  hasDetailPage: true,
+}
+```
+
+### Step 2: Create MDX file (Optional)
+Only if you want a detail page:
+1. Copy this template to `/content/projects/your-project-id.mdx`
+2. Update frontmatter to match your project
+3. Customize the content
+
+### Step 3: Add assets
+Place images in `/public/assets/projects/your-project-id/`
+
+**Note**: If you only want to link to GitHub/external URL without a detail page:
+- Set `hasDetailPage: false` in projects.ts
+- Add `link` field with external URL
+- Skip creating the MDX file

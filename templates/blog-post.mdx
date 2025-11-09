@@ -1,0 +1,156 @@
+---
+title: "Your Blog Post Title Here"
+date: "2024-03-15"
+description: "A brief description of your blog post that will appear in the list view"
+tags: ["React", "TypeScript", "Tutorial"]
+published: false
+slug: "your-post-slug"
+author: "Jaspreet Bhamra"
+---
+
+import { HandwrittenNotesPDF, References, Cite } from "@/components/blog";
+
+# Introduction
+
+Write your introduction here. This is the opening paragraph that hooks the reader and provides context for your post.
+
+## Section Heading
+
+Regular content goes here. You can use standard markdown:
+
+- Bullet points
+- **Bold text**
+- *Italic text*
+- `inline code`
+
+### Subsection
+
+More content...
+
+## Code Examples
+
+Here's how to add code blocks:
+
+```jsx
+function ExampleComponent() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+```
+
+```python
+def example_function():
+    """
+    Python code example
+    """
+    result = [x**2 for x in range(10)]
+    return result
+```
+
+## Adding Images
+
+You can add images using standard markdown:
+
+![Alt text for the image](/path/to/image.png)
+
+Or with more control:
+
+<img
+  src="/path/to/image.png"
+  alt="Description"
+  className="rounded-lg shadow-md"
+/>
+
+## Handwritten Notes (Optional)
+
+If you have handwritten notes as a PDF, you can embed them like this:
+
+<HandwrittenNotesPDF
+  src="/pdfs/your-notes.pdf"
+  title="Lecture Notes on Advanced Topics"
+  description="Detailed notes from my research on this topic"
+  height="800px"
+/>
+
+## Citations
+
+You can cite references inline using the Cite component<Cite id="1" />, or multiple sources<Cite id="2-4" />.
+
+## Another Section
+
+Continue your content...
+
+## Conclusion
+
+Wrap up your post with key takeaways or next steps.
+
+---
+
+## References
+
+<References
+  references={[
+    {
+      id: 1,
+      authors: "Smith, J., & Doe, A.",
+      title: "Understanding React Patterns",
+      source: "Journal of Web Development",
+      year: 2023,
+      url: "https://example.com/paper",
+      doi: "10.1000/example.123",
+    },
+    {
+      id: 2,
+      authors: "Johnson, B.",
+      title: "TypeScript Best Practices",
+      source: "Tech Conference Proceedings",
+      year: 2024,
+      url: "https://example.com/paper2",
+    },
+    {
+      id: 3,
+      title: "Official React Documentation",
+      source: "React.dev",
+      year: 2024,
+      url: "https://react.dev",
+    },
+  ]}
+>
+  Additional notes about the references can go here (optional).
+</References>
+
+---
+
+## Usage Instructions
+
+### Step 1: Copy this template
+Copy this file to `/content/posts/your-slug.mdx`
+
+### Step 2: Update frontmatter
+- Change `title`, `date`, `description`, `tags`, `slug` to match your post
+- Set `published: false` while drafting, `published: true` when ready to publish
+- The `slug` should match your filename
+
+### Step 3: Register in blogs.ts
+Add an entry to `src/data/blogs.ts`:
+```typescript
+{ slug: "your-slug", published: false },
+```
+
+### Step 4: Write your content
+- Use standard markdown for most content
+- Import and use special components as needed (HandwrittenNotesPDF, References, Cite)
+- You can add custom React components if needed
+
+### Step 5: Publish
+1. Set `published: true` in frontmatter
+2. Update `published: true` in `src/data/blogs.ts`
+3. Optionally, set `BLOG_COMING_SOON = false` in `src/data/blogs.ts` if it's your first post
