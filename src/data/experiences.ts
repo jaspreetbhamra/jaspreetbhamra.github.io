@@ -32,49 +32,85 @@ export interface Experience {
 
 export const experiences: Experience[] = [
 	{
-		id: "tech-company",
-		company: "Tech Company Inc.",
-		logo: "/logos/tech-company.svg",
-		position: "Senior Software Engineer",
-		duration: "2021 - Present",
-		location: "San Francisco, CA",
+		id: "creyon-bio",
+		company: "Creyon Bio",
+		logo: "/assets/logos/creyon.png",
+		position: "Data Scientist - Biological ML",
+		duration: "2023 - 2025",
+		location: "San Diego, CA, USA",
 		overview:
-			"Led development of scalable microservices architecture serving millions of users. Mentored junior developers and established best practices for code quality and testing. Implemented CI/CD pipelines reducing deployment time by 60%.",
-		tags: ["React", "Node.js", "AWS", "TypeScript"],
+			"Bridged biology and machine learning by designing scalable statistical models, interpretable ML frameworks, and deep learning pipelines that accelerated discovery and improved explainability in drug discovery",
+		tags: ["Python", "Machine Learning", "GCP", "Optimization"],
 		shortDescription:
-			"Led development of scalable microservices architecture serving millions of users. Mentored junior developers and established best practices for code quality and testing. Implemented CI/CD pipelines reducing deployment time by 60%.",
+			"Bridged biology and machine learning by designing scalable statistical models, interpretable ML frameworks, and deep learning pipelines that accelerated discovery and improved explainability in drug discovery",
 		subProjects: [
 			{
-				title: "Microservices Platform",
+				title: "Data Narratives from Data Analysis to Dashboard",
 				description:
-					"Architected and implemented a comprehensive microservices platform handling 10M+ requests daily. Led technical design decisions and mentored team of 5 developers.",
-				techStack: ["Node.js", "TypeScript", "Kubernetes", "Docker", "PostgreSQL"],
+					"Analyzed multimodal toxicology data to establish baseline distributions and normalization standards, publishing interactive dashboards that informed drug development and model reliability",
+				techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "BigQuery", "Seaborn", "Plotly", "Streamlit"],
 				highlights: [
-					"Reduced system latency by 45% through optimization",
-					"Implemented circuit breakers and retry mechanisms",
-					"Established monitoring and alerting infrastructure",
+					"Led statistical analysis of 10+ toxicology data modalities, quantifying variability and establishing baseline distributions to inform drug development decisions",
+					"Published a company-wide reference dashboard of “normal” ranges for all data modalities (Plotly and Streamlit)",
+					"Identified behavioral deviations in data to uncover confounding variables affecting data distributions and established normalization procedures for consistent downstream analysis and model development",
 				],
 			},
 			{
-				title: "CI/CD Pipeline Modernization",
+				title: "Statistical Modeling",
 				description:
-					"Redesigned deployment pipeline from legacy Jenkins to modern GitLab CI, dramatically improving developer productivity.",
-				techStack: ["GitLab CI", "Docker", "Terraform", "AWS"],
+					"Implemented scalable Bayesian models for gene expression analysis with Monte Carlo sampling and GCP parallelization, cutting workflow time and query costs by more than half",
+				techStack: ["Python", "emcee", "Snakemake", "Parquet", "Kubernetes", "GCP"],
 				highlights: [
-					"Deployment time reduced from 2 hours to 20 minutes",
-					"Automated testing coverage increased to 85%",
-					"Zero-downtime deployments achieved",
+					"Implementation based on 'A Dose-Response Model for Accurate Detection and Quantification of Transcriptome-Wide Gene Knockdown for Oligonucleotide-Based Medicines' by Pekker et al.",
+					"Built Bayesian statistical model for differential gene expression analysis using Monte Carlo sampling",
+					"Achieved 83% workflow optimization (4hrs to 40min) using Snakemake and Kubernetes/GCP parallelization",
+				],
+			},
+			{
+				title: "Interpretable/Explainable Models and Machine Learning",
+				description:
+					"Engineered an interpretable machine learning framework using Generalized Additive Models (GAMs) with Monte Carlo-based uncertainty estimation, improving prediction accuracy and accelerating experimentation through a modular Python library",
+				techStack: ["Python", "PyMC", "Multiprocessing", "Parquet", "Kubernetes", "GCP"],
+				highlights: [
+					"Engineered a custom suite of Generalized Additive Models (GAMs) with spline-based predictors, enabling interpretable prediction functions typically unavailable in standard ensemble methods",
+					"Integrated Monte Carlo sampling to provide error bars and quantify uncertainty, extending the model's interpretability",
+					"Packaged the framework as a scikit-learn compatible Python library, streamlining integration into existing pipelines",
+					"Implemented more streamlined processes for data cleaning, preprocessing and feature engineering",
+					"Achieved 15% improvement in prediction accuracy"
+				],
+			},
+			{
+				title: "Deep Learning for RNA Biology",
+				description:
+					"Work with fine-tuning transformer models for latent space exploration, and study of attention for biological models",
+				techStack: ["Python", "BERT", "Transformers", "Attention", "PyTorch"],
+				highlights: [
+					"Fine-tuned SpliceBERT transformer for biological sequence featurization, enabling latent space exploration",
+					"Led a PoC to establish the utility of Attention-based models for enhancing model explainability",
+				],
+			},
+			{
+				title: "MLOps, CI/CD & Model Infrastructure",
+				description:
+					"Designed a production-grade ML model library with built-in model and data provenance and seamless BigQuery integration, enabling faster, traceable experimentation from raw data to deployed models",
+				techStack: ["Python", "Pydantic", "scikit-learn", "BigQuery"],
+				highlights: [
+					" Re-engineered legacy ML workflows into a structured, modular framework, boosting maintainability and accelerating training setup by >90%",
+					"Ensured reproducibility of experiments by enforcing structured metadata and version control across datasets, configurations, and models",
+					"Optimized BigQuery tables through clustering/partition indexes, reducing per-query costs by ~70%",
 				],
 			},
 		],
 		publications: [
 			{
-				title: "Your Paper Title Here",
-				authors: ["Author One", "Author Two", "You"],
-				venue: "Conference Name or Journal",
-				year: "2023",
-				link: "https://link-to-paper.com",
-				type: "conference" // optional: conference, journal, preprint, workshop
+				title: "Toxicity of Antisense Oligonucleotides is Determined by the Synergistic Interplay of Chemical Modifications and Nucleotide Sequences, Not by Either Factor Alone",
+				authors: ["Jaspreet Bhamra", "Mahati Krishna", "George Samaan", "Sankha Pattanayak", "Swagatam Mukhopadhyay"],
+				venue: "ChemBioChem",
+				year: "2025",
+				link: "https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cbic.202500584",
+				type: "journal", // optional: conference, journal, preprint, workshop
+				// TODO: Increase resolution of this image...
+				image: "/assets/images/toxicity_oligos.jpg"
 			}
 		]
 	},
@@ -120,7 +156,8 @@ export const experiences: Experience[] = [
 				venue: "MDPI Remote Sensing",
 				year: "2023",
 				link: "https://www.mdpi.com/2072-4292/15/11/2790",
-				type: "journal" // optional: conference, journal, preprint, workshop
+				type: "journal", // optional: conference, journal, preprint, workshop
+				image: "/assets/images/multimodal_smokeynet.png"
 			},
 			{
 				title: "Multimodal Wildland Fire Smoke Detection",

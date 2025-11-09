@@ -120,7 +120,7 @@ export default function Home() {
 							I work at the intersection of data, modeling, and reasoning. I like searching for patterns in messy signals and building systems that can learn, adapt, and make sense of uncertainty to turn raw information into insight
 						</p>
 						<p>
-							When I'm not writing code, I'm usually drawing, painting, or making music. I like turning ideas into sound or color - another kind of data, I guess, another way to perceive the world
+							When I'm not writing code, I'm usually drawing, painting, or making music. I like turning ideas into sound or color - another kind of data, I guess... another way to perceive the world...
 						</p>
 					</div>
 				</div>
